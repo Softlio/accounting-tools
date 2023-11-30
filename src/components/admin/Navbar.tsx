@@ -1,21 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import NavMenu from "./NavMenu";
+import UserNav from "./UserNav";
 
 
-
-type Props = {
-    firstName: string;
-    lastName: string;
-    image?: string;
-};
-
-const Navbar: React.FC<Props> = ({
-    firstName,
-    lastName,
-    image,
-}) => {
+const Navbar = () => {
     return (
         <header className='w-full bg-theme-dark shadow-lg sticky'>
             <nav className='mx-auto container flex py-3 justify-between items-center'>
@@ -26,10 +15,7 @@ const Navbar: React.FC<Props> = ({
                     <NavMenu />
                 </div>
                 <div className="flex-1 justify-end flex">
-                    <Avatar className="w-12 h-12">
-                        <AvatarImage src={image} />
-                        <AvatarFallback>{firstName.charAt(0)}{lastName.charAt(0)}</AvatarFallback>
-                    </Avatar>
+                    <UserNav />
                 </div>
             </nav>
         </header>

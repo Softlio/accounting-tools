@@ -66,6 +66,8 @@ export const translations = {
       customers: "Customers",
       tools: "Tools",
       settings: "Settings",
+      home: "Home",
+      logout: "Logout",
     },
     overview: {
       title: "Overview",
