@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tool } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
-import IncomeTax from "@/app/(dashboard)/dashboard/tools/IncomeTax";
+import IncomeTax from "@/tools/IncomeTax";
 
 type Props = {
     tools: Tool[];
