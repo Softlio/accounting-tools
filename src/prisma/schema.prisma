@@ -31,6 +31,7 @@ model Tool {
   name          String
   description   String?
   tags          String[]
+  route         String
   userAccess    ToolAccess[]
 }
 
