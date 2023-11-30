@@ -4,6 +4,7 @@ import { Inter, Abhaya_Libre } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/AuthProvider";
 import translations from "@/translations/getTranslation";
+import { Toaster } from 'react-hot-toast';
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -39,6 +40,13 @@ export default function RootLayout({
           )}
         >
           {children}
+          <Toaster toastOptions={{
+            style: {
+              borderRadius: '0px',
+              padding: '16px',
+              border: '2px solid #D6AD60',
+            }
+          }} />
         </body>
       </AuthProvider>
     </html>

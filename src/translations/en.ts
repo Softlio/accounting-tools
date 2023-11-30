@@ -40,6 +40,8 @@ export const translations = {
   register: {
     missingFields: "Missing fields",
     alreadyExists: "User already exists",
+    doesntExist: "User doesn't exist",
+    unauthorized: "Unauthorized",
   },
   ladingPage: {
     hero: {

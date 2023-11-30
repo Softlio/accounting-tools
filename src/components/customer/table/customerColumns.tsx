@@ -49,9 +49,10 @@ const customerColumns: ColumnDef<User>[] = [
         accessorKey: "tools",
         header: translation.admin.customer.table.tools,
         cell(props) {
-            const value = props.getValue() as string[];
+            const value = props.getValue() as any[];
+            const filtered = value.filter((v) => v.access);
             return <p>
-                {value.length}
+                {filtered.length}
             </p>
         },
     },
