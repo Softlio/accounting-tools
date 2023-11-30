@@ -74,7 +74,7 @@ const toolsColumns: ColumnDef<Tool>[] = [
         cell(props) {
             const slug = props.getValue() as string;
             return (
-                <Link href={`/dashboard/${slug}`} className="text-theme-light" passHref>
+                <Link href={`/dashboard?tool=${slug}`} className="text-theme-light" passHref>
                     <Button className="w-12 h-12">
                         <ExternalLink size={16} />
                     </Button>

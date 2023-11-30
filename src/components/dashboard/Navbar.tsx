@@ -3,9 +3,11 @@ import React from "react";
 import NavMenu from "./NavMenu";
 import UserNav from "./UserNav";
 import Link from "next/link";
+import { getUserToolsServer } from "@/lib/access";
 
 
-const Navbar = () => {
+const Navbar = async () => {
+    const tools = await getUserToolsServer();
     return (
         <header className='w-full bg-theme-dark shadow-lg sticky top-0 z-50'>
             <nav className='mx-auto container flex py-3 justify-between items-center'>
@@ -18,7 +20,7 @@ const Navbar = () => {
                     <NavMenu />
                 </div>
                 <div className="flex-1 justify-end flex">
-                    <UserNav />
+                    <UserNav tools={tools} />
                 </div>
             </nav>
         </header>

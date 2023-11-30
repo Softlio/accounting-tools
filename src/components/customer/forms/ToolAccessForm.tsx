@@ -17,7 +17,7 @@ const ToolAccessForm: React.FC<Props> = ({ tools, toolAccess, user }) => {
     const navigator = useRouter();
 
     const updateToolAccess = async (toolId: string, checked: boolean) => {
-        const res = await fetch(`/api/access/tool`, {
+        const res = await fetch(`/api/access/update`, {
             method: "POST",
             body: JSON.stringify({
                 toolId,

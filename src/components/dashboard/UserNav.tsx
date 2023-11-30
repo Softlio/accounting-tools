@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { User } from "@prisma/client";
+import { Tool, User } from "@prisma/client";
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -16,12 +16,18 @@ import { useSession } from "next-auth/react";
 import translations from "@/translations/getTranslation";
 import Link from "next/link";
 
-const UserNav = () => {
+const UserNav = ({
+    tools
+}: {
+    tools: Tool[];
+}) => {
     const { data: session, status } = useSession();
 
     const user = session?.user as unknown as User | undefined;
     const userName =
         (user?.firstName?.charAt(0) ?? "A") + (user?.lastName?.charAt(0) ?? "A");
+
+    const isAdmin = user?.role === "ADMIN";
 
     return (
         <DropdownMenu>
@@ -51,13 +57,17 @@ const UserNav = () => {
                 </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <Link href="/dashboard/settings">
-                        <DropdownMenuItem>
-                            {translations.dashboard.navbar.settings}
-                        </DropdownMenuItem>
-                    </Link>
+                    {
+                        tools.map((tool) => (
+                            <Link key={tool.id} href={`/dashboard?tool=${tool.slug}`}>
+                                <DropdownMenuItem>
+                                    {tool.name}
+                                </DropdownMenuItem>
+                            </Link>
+                        ))
+                    }
                 </DropdownMenuGroup>
-                {true && (
+                {isAdmin && (
                     <>
                         <DropdownMenuSeparator />
                         <Link href="/admin">
@@ -67,6 +77,11 @@ const UserNav = () => {
                         </Link>
                     </>
                 )}
+                <Link href="/dashboard/settings">
+                    <DropdownMenuItem>
+                        {translations.dashboard.navbar.settings}
+                    </DropdownMenuItem>
+                </Link>
                 <DropdownMenuSeparator />
                 <Link href="/logout" passHref>
                     <DropdownMenuItem>
