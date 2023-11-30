@@ -3,15 +3,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tool } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
+import IncomeTax from "@/app/(dashboard)/dashboard/tools/IncomeTax";
 
 type Props = {
     tools: Tool[];
 };
 
 const ToolTabMap: Record<string, React.ReactNode> = {
-    "inkomsten-belasting": (
-        <TabsContent value="inkomsten-belasting">Inkomsten belasting</TabsContent>
-    ),
+    "inkomsten-belasting": <IncomeTax />,
 };
 
 const ToolTabs: React.FC<Props> = ({ tools }) => {
@@ -39,7 +38,6 @@ const ToolTabs: React.FC<Props> = ({ tools }) => {
             onValueChange={(value) => {
                 setSelectedTab(value);
             }}
-            className="w-[400px]"
         >
             <TabsList>
                 {tools.map((tool) => (
