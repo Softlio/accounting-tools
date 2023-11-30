@@ -20,7 +20,7 @@ const LoginPage = async () => {
 
     return (
         <main className="w-full h-full flex justify-center items-center bg-theme-dark">
-            <Card className="container border-theme-primary max-sm:shadow-none max-sm:border-none overflow-hidden relative h-[800px] flex-col items-center justify-center grid lg:grid-cols-2 lg:px-0 mx-4">
+            <Card className="container rounded-none border-theme-primary max-sm:shadow-none max-sm:border-none overflow-hidden relative h-[800px] flex-col items-center justify-center grid lg:grid-cols-2 lg:px-0 mx-4">
                 <Link
                     href="/register"
                     className={cn(
