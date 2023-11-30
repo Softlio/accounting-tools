@@ -18,6 +18,8 @@ const AdminLayout: React.FC<Props> = async ({
         redirect("/login");
     }
 
+
+
     return (
         <main>
             <Navbar />

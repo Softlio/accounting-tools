@@ -11,6 +11,7 @@ export const getUserTools = async (): Promise<Tool[]> => {
 };
 
 export const getUserToolsServer = async (): Promise<Tool[]> => {
+  console.log("getUserToolsServer");
   const result = await GET();
   if (result.ok) {
     return result.json();

@@ -4,7 +4,15 @@ import NavMenu from "./NavMenu";
 import UserNav from "./UserNav";
 import Link from "next/link";
 import { getUserToolsServer } from "@/lib/access";
+import { unstable_cache } from 'next/cache';
 
+const getCachedTools = unstable_cache(
+    async () => {
+        console.log('fetching tools');
+        return await getUserToolsServer()
+    },
+    ['tools']
+);
 
 const Navbar = async () => {
     const tools = await getUserToolsServer();
