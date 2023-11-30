@@ -39,4 +39,25 @@ export const translations = {
     missingFields: "Missing fields",
     alreadyExists: "User already exists",
   },
+  ladingPage: {
+    hero: {
+      slogan: "Tools to quickly help you get your accounting in",
+      description: "Accounting tools for small businesses",
+      loginButton: "Login",
+      registerButton: "Get started",
+    },
+    footer: {
+      excerpt:
+        "A proactive expert tax consultancy and accounting firm. We advise on optimal use of tax arrangements and create insight and overview in your accounting.",
+      aboutUs: "About us",
+      contact: "Contact",
+      support: "Support",
+      copyRight: "Copyright © {{year}} Admin by Khadija, All rights reserved.",
+      terms:
+        "KvKnummer is: 74388363 | Btw-nummer: NL002292190B32 | Terms and Conditions",
+    },
+    navbar: {
+      getStarted: "Get started",
+    },
+  },
 } as const;

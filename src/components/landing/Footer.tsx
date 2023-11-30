@@ -1,0 +1,72 @@
+import Image from 'next/image'
+import React from 'react'
+import translations from '@/translations/getTranslation'
+import Link from 'next/link'
+import { FacebookIcon, InstagramIcon } from 'lucide-react'
+
+const Footer = () => {
+    return (
+        <footer className="w-full bg-theme-primary py-12">
+            <div className='container flex gap-12 items-end mx-auto justify-between flex-col md:flex-row'>
+                <div className='space-y-8 max-w-xl flex flex-col max-md:items-center  mx-4'>
+                    <Link href={"https://adminbykhadija.nl/"}>
+                        <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} className='hover:opacity-60' />
+                    </Link>
+                    <p className='text-theme-light font-serif text-xl text-center md:text-left'>
+                        {translations.ladingPage.footer.excerpt}
+                    </p>
+                </div>
+                <ul className='grid grid-cols-3 text-center md:text-left md:grid-cols-2 text-theme-light transition-opacity font-serif text-2xl h-min gap-4 md:gap-8 max-w-xl w-full whitespace-nowrap'>
+                    <li>
+                        <Link href="https://adminbykhadija.nl/over-ons/" target='_blank'>
+                            <span className='hover:opacity-50'>
+                                {translations.ladingPage.footer.aboutUs}
+                            </span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
+                            <span className='hover:opacity-50'>
+                                {translations.ladingPage.footer.contact}
+                            </span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
+                            <span className='hover:opacity-50'>
+                                {translations.ladingPage.footer.support}
+                            </span>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div className='container mx-auto'>
+                <hr className='border-theme-secondary my-8 mx-1' />
+            </div>
+            <div className='container mx-auto py-2 flex items-center'>
+                <div className='flex flex-col md:flex-row items-center justify-between w-full mx-4 gap-8'>
+                    <div className='space-y-2'>
+                        <p className='text-theme-light font-serif max-md:text-center'>
+                            {translations.ladingPage.footer.copyRight}
+                        </p>
+                        <p className='text-theme-light font-serif max-md:text-center'>
+                            <Link href="https://adminbykhadija.nl/algemene-voorwaarden/">
+                                {translations.ladingPage.footer.terms}
+                            </Link>
+                        </p>
+                    </div>
+                    <div className='flex md:pr-16 gap-4'>
+                        <Link href='https://www.instagram.com/adminbykhadija/'>
+                            <InstagramIcon size={32} className='text-theme-light hover:text-theme-secondary transition-colors' />
+                        </Link>
+                        <Link href='https://www.facebook.com/people/Boekhouder-Khadija/100068015234539/'>
+                            <FacebookIcon size={32} className='text-theme-light hover:text-theme-secondary transition-colors' />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    )
+}
+
+export default Footer
