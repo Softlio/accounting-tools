@@ -47,13 +47,13 @@ const UserNav = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <Link href="/dashboard">
-                    <DropdownMenuItem>{translations.admin.navbar.home}</DropdownMenuItem>
+                    <DropdownMenuItem>{translations.dashboard.navbar.home}</DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <Link href="/dashboard/settings">
                         <DropdownMenuItem>
-                            {translations.admin.navbar.settings}
+                            {translations.dashboard.navbar.settings}
                         </DropdownMenuItem>
                     </Link>
                 </DropdownMenuGroup>
@@ -62,7 +62,7 @@ const UserNav = () => {
                         <DropdownMenuSeparator />
                         <Link href="/admin">
                             <DropdownMenuItem>
-                                {translations.admin.navbar.tools}
+                                {translations.dashboard.navbar.admin}
                             </DropdownMenuItem>
                         </Link>
                     </>
@@ -70,7 +70,7 @@ const UserNav = () => {
                 <DropdownMenuSeparator />
                 <Link href="/logout" passHref>
                     <DropdownMenuItem>
-                        {translations.admin.navbar.logout}
+                        {translations.dashboard.navbar.logout}
                     </DropdownMenuItem>
                 </Link>
             </DropdownMenuContent>

@@ -103,4 +103,12 @@ export const translations = {
     description: "Page not found",
     button: "Go back",
   },
+  dashboard: {
+    navbar: {
+      home: "Home",
+      settings: "Settings",
+      admin: "Admin",
+      logout: "Logout",
+    },
+  },
 } as const;
