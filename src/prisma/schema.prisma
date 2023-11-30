@@ -28,10 +28,10 @@ model User {
 
 model Tool {
   id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  slug          String @unique
   name          String
   description   String?
   tags          String[]
-  route         String
   userAccess    ToolAccess[]
 }
 

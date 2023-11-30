@@ -3,6 +3,8 @@ export const translations = {
     and: "and",
     terms: "Terms of Service",
     privacy: "Privacy Policy",
+    noResults: "No results.",
+    under_construction: "This page is under construction",
   },
   layout: {
     metadata: {
@@ -74,9 +76,24 @@ export const translations = {
     },
     customer: {
       title: "Customers",
+      table: {
+        firstName: "First name",
+        lastName: "Last name",
+        email: "Email",
+        role: "Role",
+        tools: "Tools",
+        edit: "Edit",
+      },
     },
     tools: {
       title: "Tools",
+      table: {
+        name: "Name",
+        description: "Description",
+        tags: "Tags",
+        users: "Users",
+        actions: "Actions",
+      },
     },
     settings: {
       title: "Settings",

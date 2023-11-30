@@ -1,4 +1,5 @@
 import Title from "@/components/shared/Title";
+import UnderConstruction from "@/components/shared/UnderConstruction";
 import translation from "@/translations/getTranslation";
 
 const SettingsPage = async () => {
@@ -7,6 +8,7 @@ const SettingsPage = async () => {
             <Title>
                 {translation.admin.settings.title}
             </Title>
+            <UnderConstruction />
         </div>
     </section>;
 };

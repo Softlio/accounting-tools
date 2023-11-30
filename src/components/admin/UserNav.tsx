@@ -13,7 +13,7 @@ const UserNav = () => {
     const { data: session, status } = useSession();
 
 
-    const user = session?.user as unknown as User;
+    const user = session?.user as unknown as User | undefined;
     const userName = (user?.firstName?.charAt(0) ?? "A") + (user?.lastName?.charAt(0) ?? "A");
 
     return (
@@ -31,9 +31,9 @@ const UserNav = () => {
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none">{user.firstName} {user.lastName}</p>
+                        <p className="text-sm font-medium leading-none">{user?.firstName} {user?.lastName}</p>
                         <p className="text-xs leading-none text-muted-foreground">
-                            {user.email}
+                            {user?.email}
                         </p>
                     </div>
                 </DropdownMenuLabel>
