@@ -60,4 +60,24 @@ export const translations = {
       getStarted: "Get started",
     },
   },
+  admin: {
+    navbar: {
+      dashboard: "Overview",
+      customers: "Customers",
+      tools: "Tools",
+      settings: "Settings",
+    },
+    overview: {
+      title: "Overview",
+    },
+    customer: {
+      title: "Customers",
+    },
+    tools: {
+      title: "Tools",
+    },
+    settings: {
+      title: "Settings",
+    },
+  },
 } as const;
