@@ -84,6 +84,10 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
+  pages: {
+    signIn: "/login",
+    signOut: "/logout",
+  },
 };
 
 const handler = NextAuth(authOptions);
