@@ -1,19 +1,26 @@
 "use client"
 
+import translations from "@/translations/getTranslation";
 import { Alert, AlertTitle, AlertDescription } from "../ui/alert"
 import { AlertCircle } from "lucide-react"
+import { useEffect, useState } from "react";
 
 const LoginAlert = () => {
-    const urlParams = new URLSearchParams(window?.location?.search)
-    const error = urlParams.get("error")
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window?.location?.search)
+        const error = urlParams.get("error")
+        setError(error);
+    }, [])
 
     if (error) {
         return (
             <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
-                <AlertTitle>Error</AlertTitle>
+                <AlertTitle>{translations.login.alert.title}</AlertTitle>
                 <AlertDescription>
-                    Error logging in. Please try again.
+                    {translations.login.alert.error}
                 </AlertDescription>
             </Alert>
         )

@@ -3,15 +3,18 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/AuthProvider";
+import translations from "@/translations/getTranslation";
 
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
+
+
 export const metadata: Metadata = {
-  title: "Accounting tools",
-  description: "Accounting tools for small businesses",
+  title: translations.layout.metadata.title,
+  description: translations.layout.metadata.description,
 };
 
 export default function RootLayout({

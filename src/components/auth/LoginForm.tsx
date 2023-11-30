@@ -15,10 +15,11 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { signIn } from "next-auth/react"
+import translations from "@/translations/getTranslation";
 
 const formSchema = z.object({
     email: z.string().email(),
-    password: z.string().min(2, "Password must be at least 2 characters"),
+    password: z.string().min(2, translations.login.form.passwordError),
 })
 
 export const LoginForm = () => {
@@ -45,12 +46,12 @@ export const LoginForm = () => {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{translations.login.form.email}</FormLabel>
                         <FormControl>
-                            <Input placeholder="example@email.com" {...field} />
+                            <Input placeholder={translations.login.form.emailPlaceholder} {...field} />
                         </FormControl>
                         <FormDescription>
-                            The email address you used to register
+                            {translations.login.form.emailDescription}
                         </FormDescription>
                         <FormMessage />
                     </FormItem>
@@ -61,15 +62,15 @@ export const LoginForm = () => {
                 name="password"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>{translations.login.form.password}</FormLabel>
                         <FormControl>
-                            <Input type="password" {...field} />
+                            <Input type="password" placeholder={translations.login.form.passwordPlaceholder} {...field} />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
                 )}
             />
-            <Button type="submit" className="bg-theme-secondary">Submit</Button>
+            <Button type="submit" className="bg-theme-secondary">{translations.login.form.submit}</Button>
         </form>
     </Form>
 }

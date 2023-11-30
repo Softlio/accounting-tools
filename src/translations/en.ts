@@ -1,0 +1,42 @@
+export const translations = {
+  global: {
+    and: "and",
+    terms: "Terms of Service",
+    privacy: "Privacy Policy",
+  },
+  layout: {
+    metadata: {
+      title: "Accounting tools",
+      description: "Accounting tools for small businesses",
+    },
+  },
+  login: {
+    title: "Login",
+    description: "Enter your email below to log into your account",
+    slogan: "Tools to quickly help you get your accounting in",
+    registerButton: "Register",
+    agreement: "By clicking continue, you agree to our",
+    form: {
+      email: "Email",
+      emailPlaceholder: "Enter your email",
+      emailDescription: "The email address you used to register",
+      password: "Password",
+      passwordPlaceholder: "Enter your password",
+      submit: "Continue",
+      passwordError: "Password must be at least 2 characters",
+    },
+    alert: {
+      title: "Error",
+      error: "Error logging in. Please try again.",
+    },
+  },
+  logout: {
+    title: "Logout",
+    description: "Are you sure you want to logout",
+    button: "Logout",
+  },
+  register: {
+    missingFields: "Missing fields",
+    alreadyExists: "User already exists",
+  },
+} as const;

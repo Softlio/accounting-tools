@@ -4,10 +4,12 @@ import { LoginForm } from "@/components/auth/LoginForm";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import translations from "@/translations/getTranslation";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
 
 const LoginPage = async () => {
     const session = await getServerSession(authOptions);
@@ -26,7 +28,7 @@ const LoginPage = async () => {
                         "absolute right-4 top-4 md:right-8 md:top-8"
                     )}
                 >
-                    Register
+                    {translations.login.registerButton}
                 </Link>
                 <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
                     <div className="absolute inset-0 bg-theme-primary" />
@@ -36,7 +38,7 @@ const LoginPage = async () => {
                     <div className="relative z-20 mt-auto">
                         <blockquote className="space-y-2">
                             <p className="text-lg">
-                                Tools to quickly help you get your accounting in
+                                {translations.login.slogan}
                             </p>
                         </blockquote>
                     </div>
@@ -48,28 +50,28 @@ const LoginPage = async () => {
                         </div>
                         <div className="flex flex-col space-y-2 text-center">
                             <h1 className="text-2xl font-semibold tracking-tight">
-                                Login
+                                {translations.login.title}
                             </h1>
                             <p className="text-sm text-muted-foreground">
-                                Enter your email below to log into your account
+                                {translations.login.description}
                             </p>
                         </div>
                         <LoginAlert />
                         <LoginForm />
                         <p className="px-8 text-center text-sm text-muted-foreground">
-                            By clicking continue, you agree to our{" "}
+                            {translations.login.agreement}
                             <Link
                                 href="/terms"
                                 className="underline underline-offset-4 hover:text-primary"
                             >
-                                Terms of Service
+                                {translations.global.terms}
                             </Link>{" "}
-                            and{" "}
+                            {translations.global.and}{" "}
                             <Link
                                 href="/privacy"
                                 className="underline underline-offset-4 hover:text-primary"
                             >
-                                Privacy Policy
+                                {translations.global.privacy}
                             </Link>
                             .
                         </p>
