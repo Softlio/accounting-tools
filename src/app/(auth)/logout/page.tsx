@@ -1,5 +1,6 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import LogoutButton from '@/components/auth/LogoutButton';
+import Title from '@/components/shared/Title';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import translations from "@/translations/getTranslation";
 import { getServerSession } from 'next-auth';
@@ -21,7 +22,9 @@ const LogoutPage = async () => {
                     <div className='w-full flex justify-center items-center py-4'>
                         <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} />
                     </div>
-                    <CardTitle className='text-center'>{translations.logout.title}</CardTitle>
+                    <Title type="h1" className='text-center'>
+                        {translations.logout.title}
+                    </Title>
                     <CardDescription className='text-center'>{translations.logout.description}</CardDescription>
                 </CardHeader>
                 <CardContent>

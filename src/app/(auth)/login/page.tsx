@@ -1,6 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import LoginAlert from "@/components/auth/LoginAlert";
 import { LoginForm } from "@/components/auth/LoginForm";
+import Title from "@/components/shared/Title";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -49,9 +50,9 @@ const LoginPage = async () => {
                             <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} />
                         </div>
                         <div className="flex flex-col space-y-2 text-center">
-                            <h1 className="text-2xl font-semibold tracking-tight">
+                            <Title type="h1">
                                 {translations.login.title}
-                            </h1>
+                            </Title>
                             <p className="text-sm text-muted-foreground">
                                 {translations.login.description}
                             </p>
@@ -59,7 +60,7 @@ const LoginPage = async () => {
                         <LoginAlert />
                         <LoginForm />
                         <p className="px-8 text-center text-sm text-muted-foreground">
-                            {translations.login.agreement}
+                            {translations.login.agreement}{" "}
                             <Link
                                 href="/terms"
                                 className="underline underline-offset-4 hover:text-primary"
