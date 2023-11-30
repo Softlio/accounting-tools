@@ -51,29 +51,24 @@ const UserNav = () => {
                 </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <Link href="/admin">
-                        <DropdownMenuItem>
-                            {translations.admin.navbar.dashboard}
-                        </DropdownMenuItem>
-                    </Link>
-                    <Link href="/admin/customers">
-                        <DropdownMenuItem>
-                            {translations.admin.navbar.customers}
-                        </DropdownMenuItem>
-                    </Link>
-                    <Link href="/admin/tools">
-                        <DropdownMenuItem>
-                            {translations.admin.navbar.tools}
-                        </DropdownMenuItem>
-                    </Link>
-                    <Link href="/admin/settings">
+                    <Link href="/dashboard/settings">
                         <DropdownMenuItem>
                             {translations.admin.navbar.settings}
                         </DropdownMenuItem>
                     </Link>
                 </DropdownMenuGroup>
+                {true && (
+                    <>
+                        <DropdownMenuSeparator />
+                        <Link href="/admin">
+                            <DropdownMenuItem>
+                                {translations.admin.navbar.tools}
+                            </DropdownMenuItem>
+                        </Link>
+                    </>
+                )}
                 <DropdownMenuSeparator />
-                <Link href="/logout">
+                <Link href="/logout" passHref>
                     <DropdownMenuItem>
                         {translations.admin.navbar.logout}
                     </DropdownMenuItem>

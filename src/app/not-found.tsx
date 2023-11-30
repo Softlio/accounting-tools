@@ -16,7 +16,7 @@ const NotFound = () => {
                 <h2 className='font-serif text-[2rem] text-theme-dark'>
                     {translations.notFound.description}
                 </h2>
-                <Link href='/' passHref>
+                <Link href='/dashboard' passHref>
                     <Button className='mt-8 px-8 py-6 text-lg'>
                         {translations.notFound.button}
                     </Button>
