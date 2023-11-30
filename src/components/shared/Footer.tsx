@@ -5,9 +5,12 @@ import Link from 'next/link'
 import { FacebookIcon, InstagramIcon } from 'lucide-react'
 
 const Footer = () => {
+
+    const year = `${new Date().getUTCFullYear()}`;
+
     return (
         <footer className="w-full bg-theme-primary py-12">
-            <div className='container flex gap-12 items-end mx-auto justify-between flex-col md:flex-row'>
+            <div className='container flex gap-12 items-center md:items-end mx-auto justify-between flex-col md:flex-row'>
                 <div className='space-y-8 max-w-xl flex flex-col max-md:items-center  mx-4'>
                     <Link href={"https://adminbykhadija.nl/"}>
                         <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} className='hover:opacity-60' />
@@ -47,7 +50,7 @@ const Footer = () => {
                 <div className='flex flex-col md:flex-row items-center justify-between w-full mx-4 gap-8'>
                     <div className='space-y-2'>
                         <p className='text-theme-light font-serif max-md:text-center'>
-                            {translations.ladingPage.footer.copyRight}
+                            {translations.ladingPage.footer.copyRight.replace("{{year}}", year)}
                         </p>
                         <p className='text-theme-light font-serif max-md:text-center'>
                             <Link href="https://adminbykhadija.nl/algemene-voorwaarden/">

@@ -6,7 +6,7 @@ import UserNav from "./UserNav";
 
 const Navbar = () => {
     return (
-        <header className='w-full bg-theme-dark shadow-lg sticky'>
+        <header className='w-full bg-theme-dark shadow-lg sticky top-0 z-50'>
             <nav className='mx-auto container flex py-3 justify-between items-center'>
                 <div className="flex-1">
                     <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} className='h-16 w-min' />

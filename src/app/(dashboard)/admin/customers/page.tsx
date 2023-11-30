@@ -18,7 +18,7 @@ const getData = async (): Promise<User[]> => {
 const CustomerPage = async () => {
     const data = await getData();
 
-    return <section>
+    return <section className="min-h-[80vh]">
         <div className="container mx-auto py-16 flex flex-col gap-2">
             <div className="flex justify-between items-center">
                 <Title>

@@ -39,7 +39,7 @@ const UserNav = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    <Link href="/home">
+                    <Link href="/dashboard">
                         {translations.admin.navbar.home}
                     </Link>
                 </DropdownMenuItem>

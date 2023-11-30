@@ -1,5 +1,6 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Navbar from '@/components/admin/Navbar';
+import Footer from '@/components/shared/Footer';
 import { User } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
@@ -26,8 +27,9 @@ const AdminLayout: React.FC<Props> = async ({
 
     return (
         <main>
-            <Navbar firstName={user?.firstName ?? "A"} lastName={user?.lastName ?? "AA"} />
+            <Navbar />
             {children}
+            <Footer />
         </main>
     )
 }

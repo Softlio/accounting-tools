@@ -99,4 +99,8 @@ export const translations = {
       title: "Settings",
     },
   },
+  notFound: {
+    description: "Page not found",
+    button: "Go back",
+  },
 } as const;
