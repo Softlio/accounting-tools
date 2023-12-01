@@ -6,16 +6,16 @@ import Link from "next/link";
 import { getUserToolsServer } from "@/lib/access";
 import { unstable_cache } from 'next/cache';
 
-const getCachedTools = unstable_cache(
-    async () => {
-        console.log('fetching tools');
-        return await getUserToolsServer()
-    },
-    ['tools']
-);
+// const getCachedTools = unstable_cache(
+//     async () => {
+//         console.log('fetching tools');
+//         return await getUserToolsServer()
+//     },
+//     ['tools']
+// );
 
 const Navbar = async () => {
-    const tools = await getCachedTools();
+    const tools = await getUserToolsServer();
     return (
         <header className='w-full bg-theme-dark shadow-lg sticky top-0 z-50'>
             <nav className='mx-auto container flex py-3 justify-between items-center'>

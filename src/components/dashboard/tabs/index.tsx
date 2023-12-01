@@ -4,6 +4,7 @@ import { Tool } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
 import IncomeTax from "@/tools/IncomeTax";
+import NoTools from "./NoTools";
 
 type Props = {
     tools: Tool[];
@@ -31,6 +32,10 @@ const ToolTabs: React.FC<Props> = ({ tools }) => {
         }
         navigation.replace(`/dashboard?tool=${selectedTab}`);
     }, [navigation, selectedTab]);
+
+    if (!tools.length) {
+        return <NoTools />;
+    }
 
     return (
         <Tabs
