@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Hero = () => {
     return (
-        <header className='relative z-auto w-full h-[90dvh] flex justify-center flex-col'>
+        <header className='relative z-auto w-full h-[80dvh] flex justify-center flex-col'>
             <Image src="/images/hero-1.jpg" alt="Hero 1" className='object-cover absolute z-0 w-full h-full' width={2000} height={1393} />
             <div className='absolute inset-0 bg-theme-dark bg-opacity-40 z-[1] w-full h-full' />
             <div className='z-10 container mx-auto space-y-6'>

@@ -8,8 +8,8 @@ export const translations = {
   },
   layout: {
     metadata: {
-      title: "Accounting tools",
-      description: "Accounting tools for small businesses",
+      title: "Admin by Khadija | Accounting tools",
+      description: "Accounting tools for businesses",
     },
   },
   login: {

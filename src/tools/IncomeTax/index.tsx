@@ -63,9 +63,9 @@ const IncomeTax = () => {
           </div>
 
           <div className="items-center flex space-x-2 pt-6">
-            <Checkbox id="terms1" />
+            <Checkbox id="hours_worked" />
             <label
-              htmlFor="terms1"
+              htmlFor="hours_worked"
               className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Heb je meer dan 1225 uur gewerkt aan je onderneming?
@@ -73,9 +73,9 @@ const IncomeTax = () => {
           </div>
 
           <div className="items-center flex space-x-2 pt-6">
-            <Checkbox id="terms1" />
+            <Checkbox id="starter_deduction" />
             <label
-              htmlFor="terms1"
+              htmlFor="starter_deduction"
               className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Heb je recht op startersaftrek?
@@ -83,9 +83,9 @@ const IncomeTax = () => {
           </div>
 
           <div className="items-center flex space-x-2 pt-6">
-            <Checkbox id="terms1" />
+            <Checkbox id="salaried" />
             <label
-              htmlFor="terms1"
+              htmlFor="salaried"
               className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Heb je in loondienst gewerkt dit jaar?
@@ -93,18 +93,17 @@ const IncomeTax = () => {
           </div>
 
           <div className="w-3/5 pt-4">
-            <Label htmlFor="loon_jaaropgave" className="text-md">Loon volgens jaaropgave</Label>
-            <Input type="number" placeholder="Loon volgens jaaropgave" name="loon_jaaropgave" defaultValue={0} />
+            <Label htmlFor="annual_salary" className="text-md">Loon volgens jaaropgave</Label>
+            <Input type="number" placeholder="Loon volgens jaaropgave" name="annual_salary" defaultValue={0} />
           </div>
 
           <div className="w-3/5">
-            <Label htmlFor="loonheffing" className="text-md">Ingehouden loonheffing</Label>
-            <Input type="number" placeholder="Ingehouden loonheffing" name="loonheffing" defaultValue={0} />
+            <Label htmlFor="income_tax" className="text-md">Ingehouden loonheffing</Label>
+            <Input type="number" placeholder="Ingehouden loonheffing" name="income_tax" defaultValue={0} />
           </div>
         </div>
         <div className="max-w-xl space-y-2">
           <Title type='h4'>Resultaat</Title>
-
           <ul className="px-2 flex flex-col gap-1">
             <ResultRow label="Winst uit onderneming" value={0} />
             <ResultRow label="Af: Ondernemersaftrek" value={0} />

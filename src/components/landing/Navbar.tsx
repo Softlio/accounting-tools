@@ -13,7 +13,7 @@ const Navbar = () => {
                 </Link>
                 <Button size={"lg"} asChild className='text-xl px-10 py-6 bg-theme-secondary transition-colors duration-300 font-serif font-bold max-sm:hidden'>
                     <Link href='/register'>
-                        {translations.ladingPage.navbar.getStarted}
+                        {translations.ladingPage.hero.loginButton}
                     </Link>
                 </Button>
             </nav>
