@@ -3,7 +3,7 @@ import ToolAccessForm from '@/components/customer/forms/ToolAccessForm'
 import Title from '@/components/shared/Title'
 import { prisma } from '@/lib/prisma'
 import { Tool, ToolAccess, User } from '@prisma/client'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import React from 'react'
 
 type Props = {

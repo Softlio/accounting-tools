@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import LoginAlert from "@/components/auth/LoginAlert";
 import { LoginForm } from "@/components/auth/LoginForm";
 import Title from "@/components/shared/Title";

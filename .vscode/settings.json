@@ -18,7 +18,8 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.wordWrapColumn": 100,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": true,
+    "source.organizeImports": true
   },
   "cSpell.words": ["TCTA"],
   "tailwindCSS.experimental.classRegex": [

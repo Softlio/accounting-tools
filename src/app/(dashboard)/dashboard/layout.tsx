@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from "@/lib/auth";
 import Navbar from '@/components/dashboard/Navbar';
 import Footer from '@/components/shared/Footer';
 import { getServerSession } from 'next-auth';

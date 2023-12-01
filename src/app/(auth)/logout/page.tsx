@@ -1,7 +1,7 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import LogoutButton from '@/components/auth/LogoutButton';
 import Title from '@/components/shared/Title';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card';
+import { authOptions } from "@/lib/auth";
 import translations from "@/translations/getTranslation";
 import { getServerSession } from 'next-auth';
 import Image from "next/image";

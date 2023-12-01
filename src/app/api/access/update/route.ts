@@ -1,10 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcrypt";
 import translations from "@/translations/getTranslation";
 import { getServerSession } from "next-auth";
 import { User } from "@prisma/client";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
   const { toolId, value = false, userId } = await request.json();

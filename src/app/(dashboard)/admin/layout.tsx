@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from "@/lib/auth";
 import Navbar from '@/components/admin/Navbar';
 import Footer from '@/components/shared/Footer';
 import { User } from '@prisma/client';

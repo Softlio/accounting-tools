@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import ToolTabs from "@/components/dashboard/tabs";
 import Title from "@/components/shared/Title";
 import { getUserToolsServer } from "@/lib/access";
