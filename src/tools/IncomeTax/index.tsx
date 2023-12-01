@@ -284,7 +284,7 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
 
     let tax_credits = general_tax_credit + labor_discount;
 
-    income_tax_due += income_tax - tax_credits;
+    income_tax_due += minClamp(income_tax - tax_credits, 0);
 
     let health_insurance = yearlyValues.health_insurance_percentage(taxable_income);
 
