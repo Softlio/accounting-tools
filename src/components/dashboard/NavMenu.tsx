@@ -1,10 +1,9 @@
 "use client";
 
-import translations from "@/translations/getTranslation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React, { useMemo } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import React from "react";
 
 type Props = {
     href: string;

@@ -1,6 +1,7 @@
 "use client";
 import TabContainer from "@/components/dashboard/tabs/TabContainer";
 import Title from "@/components/shared/Title";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -10,12 +11,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import React, { useEffect, useState } from "react";
 import { getPercentage, minClamp, parseToEuro, parseToNumber } from "@/lib/money";
 import { cn } from "@/lib/utils";
-import { create } from "zustand";
 import translations from "@/translations/getTranslation";
+import React from "react";
+import { create } from "zustand";
 import { yearlyIncomeTaxValues } from "./values";
 
 export const ResultRow = ({

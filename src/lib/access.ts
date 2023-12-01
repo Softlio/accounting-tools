@@ -1,5 +1,5 @@
-import { Tool } from "@prisma/client";
 import { GET } from "@/app/api/access/tools/route";
+import { Tool } from "@prisma/client";
 export const getUserTools = async (): Promise<Tool[]> => {
   const res = await fetch("/api/access/tools");
   if (!res.ok) {

@@ -1,9 +1,9 @@
 "use client"
 
 import translations from "@/translations/getTranslation";
-import { Alert, AlertTitle, AlertDescription } from "../ui/alert"
-import { AlertCircle } from "lucide-react"
+import { AlertCircle } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
 const LoginAlert = () => {
     const [error, setError] = useState<string | null>(null)

@@ -1,10 +1,6 @@
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import {
     Form,
     FormControl,
@@ -14,8 +10,12 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import translations from "@/translations/getTranslation"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { signIn } from "next-auth/react"
-import translations from "@/translations/getTranslation";
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
 const formSchema = z.object({
     email: z.string().email(),

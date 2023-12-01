@@ -1,7 +1,7 @@
-import { authOptions } from "@/lib/auth";
 import ToolTabs from "@/components/dashboard/tabs";
 import Title from "@/components/shared/Title";
 import { getUserToolsServer } from "@/lib/access";
+import { authOptions } from "@/lib/auth";
 import { User } from "@prisma/client";
 import { getServerSession } from "next-auth";
 

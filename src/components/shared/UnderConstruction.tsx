@@ -1,4 +1,3 @@
-import React from 'react'
 import translation from "@/translations/getTranslation";
 
 const UnderConstruction = () => {

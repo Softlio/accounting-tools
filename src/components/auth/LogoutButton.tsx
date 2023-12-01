@@ -1,8 +1,8 @@
 "use client"
 
-import { signOut } from "next-auth/react"
-import { Button } from "../ui/button"
 import translations from "@/translations/getTranslation";
+import { signOut } from "next-auth/react";
+import { Button } from "../ui/button";
 
 const LogoutButton = () => {
     return (

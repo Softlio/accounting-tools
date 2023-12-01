@@ -1,8 +1,7 @@
+import translations from '@/translations/getTranslation'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import { Button } from '../ui/button'
-import translations from '@/translations/getTranslation'
 
 const Navbar = () => {
     return (

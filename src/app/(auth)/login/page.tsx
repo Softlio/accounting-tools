@@ -1,9 +1,9 @@
-import { authOptions } from "@/lib/auth";
 import LoginAlert from "@/components/auth/LoginAlert";
 import { LoginForm } from "@/components/auth/LoginForm";
 import Title from "@/components/shared/Title";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { authOptions } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 import translations from "@/translations/getTranslation";
 import { getServerSession } from "next-auth";

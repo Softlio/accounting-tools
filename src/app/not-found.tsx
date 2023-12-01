@@ -1,8 +1,7 @@
 import NotFoundNavbar from '@/components/not-found/Navbar'
 import Footer from '@/components/shared/Footer'
-import React from 'react'
-import translations from '@/translations/getTranslation'
 import { Button } from '@/components/ui/button'
+import translations from '@/translations/getTranslation'
 import Link from 'next/link'
 
 const NotFound = () => {

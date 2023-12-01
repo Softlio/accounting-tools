@@ -1,5 +1,4 @@
 import Title from '@/components/shared/Title'
-import React from 'react'
 
 const NoTools = () => {
     return (

@@ -1,18 +1,14 @@
 "use client";
-import React from "react";
+import translation from "@/translations/getTranslation";
 import { User } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import translation from "@/translations/getTranslation";
 
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { DataTable } from "@/components/ui/data-table";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { DataTable } from "@/components/ui/data-table";
+import {
+    TooltipProvider
+} from "@/components/ui/tooltip";
+import Link from "next/link";
 
 const customerColumns: ColumnDef<User>[] = [
     {

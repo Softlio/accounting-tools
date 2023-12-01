@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
-import { Inter, Abhaya_Libre } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/AuthProvider";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
 import translations from "@/translations/getTranslation";
+import type { Metadata } from "next";
+import { Abhaya_Libre, Inter } from "next/font/google";
 import { Toaster } from 'react-hot-toast';
 
 export const inter = Inter({

@@ -1,9 +1,9 @@
 "use client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import IncomeTax from "@/tools/IncomeTax";
 import { Tool } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
-import IncomeTax from "@/tools/IncomeTax";
 import NoTools from "./NoTools";
 
 type Props = {

@@ -1,9 +1,9 @@
-import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
-import translations from "@/translations/getTranslation";
-import { getServerSession } from "next-auth";
-import { User } from "@prisma/client";
 import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import translations from "@/translations/getTranslation";
+import { User } from "@prisma/client";
+import { getServerSession } from "next-auth";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   const session = await getServerSession(authOptions);

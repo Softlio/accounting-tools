@@ -1,20 +1,20 @@
 "use client";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Tool, User } from "@prisma/client";
 import {
     DropdownMenu,
-    DropdownMenuTrigger,
     DropdownMenuContent,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuGroup,
     DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "../ui/button";
-import { useSession } from "next-auth/react";
 import translations from "@/translations/getTranslation";
+import { Tool, User } from "@prisma/client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const UserNav = ({
     tools

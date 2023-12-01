@@ -1,8 +1,7 @@
-import Image from 'next/image'
-import React from 'react'
 import translations from '@/translations/getTranslation'
-import Link from 'next/link'
 import { FacebookIcon, InstagramIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Footer = () => {
 

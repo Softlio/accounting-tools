@@ -1,7 +1,6 @@
 "use client"
-import { RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import React from 'react'
+import { RotateCw } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const RefreshButton = () => {

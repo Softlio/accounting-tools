@@ -4,8 +4,8 @@ import {
     ColumnDef,
     flexRender,
     getCoreRowModel,
-    useReactTable,
     getPaginationRowModel,
+    useReactTable,
 } from "@tanstack/react-table"
 
 import {
@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/table"
 
 import translations from "@/translations/getTranslation"
-import { Button } from "./button"
 import { DataTablePagination } from "./data-table-pagination"
 
 interface DataTableProps<TData, TValue> {
