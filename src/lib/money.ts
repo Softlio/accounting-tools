@@ -8,3 +8,7 @@ export const parseToEuro = (value: number): string => {
     currency: "EUR",
   }).format(value);
 };
+
+export const minClamp = (value: number, min: number = 0): number => {
+  return Math.max(value, min);
+};

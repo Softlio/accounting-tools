@@ -12,7 +12,7 @@ const Navbar = () => {
                     <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} className='max-sm:h-16' />
                 </Link>
                 <Button size={"lg"} asChild className='text-xl px-10 py-6 bg-theme-secondary transition-colors duration-300 font-serif font-bold max-sm:hidden'>
-                    <Link href='/register'>
+                    <Link href='/login'>
                         {translations.ladingPage.hero.loginButton}
                     </Link>
                 </Button>

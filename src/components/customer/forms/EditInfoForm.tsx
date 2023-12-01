@@ -25,6 +25,8 @@ import {
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
+import translations from "@/translations/getTranslation";
+
 const formSchema = z.object({
     email: z.string().email(),
     firstName: z.string(),
@@ -61,11 +63,11 @@ const EditInfoForm: React.FC<{
         });
 
         if (!res.ok) {
-            toast.error("Something went wrong!");
+            toast.error(translations.customer.edit.toast.error);
             return;
         }
 
-        toast.success("User updated successfully!");
+        toast.success(translations.customer.edit.toast.success);
         router.refresh();
     }
 
@@ -77,11 +79,11 @@ const EditInfoForm: React.FC<{
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Email</FormLabel>
+                            <FormLabel>{translations.customer.edit.form.email}</FormLabel>
                             <FormControl>
-                                <Input placeholder="example@gmail.com" {...field} />
+                                <Input placeholder={translations.customer.edit.form.emailPlaceholder} {...field} />
                             </FormControl>
-                            <FormDescription>The email address of the user.</FormDescription>
+                            <FormDescription>{translations.customer.edit.form.emailDescription}</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -91,11 +93,11 @@ const EditInfoForm: React.FC<{
                     name="firstName"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>First Name</FormLabel>
+                            <FormLabel>{translations.customer.edit.form.firstName}</FormLabel>
                             <FormControl>
-                                <Input placeholder="John" {...field} />
+                                <Input placeholder={translations.customer.edit.form.firstNamePlaceholder} {...field} />
                             </FormControl>
-                            <FormDescription>The first name of the user.</FormDescription>
+                            <FormDescription>{translations.customer.edit.form.firstNameDescription}</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -105,11 +107,11 @@ const EditInfoForm: React.FC<{
                     name="lastName"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Last Name</FormLabel>
+                            <FormLabel>{translations.customer.edit.form.lastName}</FormLabel>
                             <FormControl>
-                                <Input placeholder="Doe" {...field} />
+                                <Input placeholder={translations.customer.edit.form.lastNamePlaceholder} {...field} />
                             </FormControl>
-                            <FormDescription>The last name of the user.</FormDescription>
+                            <FormDescription>{translations.customer.edit.form.lastNameDescription}</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -119,26 +121,26 @@ const EditInfoForm: React.FC<{
                     name="role"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Role</FormLabel>
+                            <FormLabel>{translations.customer.edit.form.role}</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
-                                        <SelectValue placeholder="Select a role for the user" />
+                                        <SelectValue placeholder={translations.customer.edit.form.rolePlaceholder} />
                                     </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                    <SelectItem value="ADMIN">Admin</SelectItem>
-                                    <SelectItem value="USER">User</SelectItem>
+                                    <SelectItem value="ADMIN">{translations.role.admin}</SelectItem>
+                                    <SelectItem value="USER">{translations.role.user}</SelectItem>
                                 </SelectContent>
                             </Select>
                             <FormDescription>
-                                The role of the user. Admins have full access to the dashboard.
+                                {translations.customer.edit.form.roleDescription}
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Update</Button>
+                <Button type="submit">{translations.customer.edit.form.submit}</Button>
             </form>
         </Form>
     );

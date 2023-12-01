@@ -7,6 +7,9 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
+
+import translations from "@/translations/getTranslation";
+
 type Props = {
     user: Omit<User, "password">;
     tools: Tool[];
@@ -30,20 +33,19 @@ const ToolAccessForm: React.FC<Props> = ({ tools, toolAccess, user }) => {
         });
 
         if (!res.ok) {
-            toast.error("Something went wrong");
+            toast.error(translations.toolAccess.toast.error);
             navigator.refresh();
             return;
         }
 
-        toast.success("Tool access updated");
+        toast.success(translations.toolAccess.toast.success);
         navigator.refresh();
     };
 
     return (
         <div>
             <p className="pb-6">
-                Manage tool access for this user. This is a list of all tools in the
-                system.
+                {translations.toolAccess.description}
             </p>
             <div>
                 <ul>
