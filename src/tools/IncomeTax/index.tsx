@@ -329,6 +329,7 @@ const IncomeTax = () => {
                 read_more: store.results.labor_discount_link,
                 description: translations.incomeTaxTool.info.labor_discount,
               }}
+              negative
             />
             <ResultRow
               label={translations.incomeTaxTool.result.tax_credits}

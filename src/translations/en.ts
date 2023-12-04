@@ -208,6 +208,7 @@ export const translations = {
       tax_credits: "Tax credits",
       income_tax_due: "Income tax to be paid",
       health_insurance: "Health Insurance Act contribution to be paid",
+      calculate: "Calculate",
     },
     info: {
       entrepreneur_deduction:
@@ -224,6 +225,10 @@ export const translations = {
         "Your employer or benefits agency usually pays employer levies under the Healthcare Insurance Act (Zvw). But there are also situations in which you pay an income-related Zvw contribution (Zvw contribution) yourself. You will then receive a Zvw assessment or a provisional Zvw assessment.",
       starter_deduction:
         "The starter's deduction is an increase in the self-employed deduction. You will receive the starter's deduction a maximum of 3 times in the first 5 years that you are an entrepreneur. The following conditions apply",
+    },
+    dialog: {
+      title: "Calculate",
+      description: "Calculate your income tax now",
     },
   },
 } as const;
