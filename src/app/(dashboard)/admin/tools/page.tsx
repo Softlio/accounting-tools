@@ -1,6 +1,6 @@
 import Title from "@/components/shared/Title";
 import RefreshButton from "@/components/shared/refreshButton";
-import { ToolsDataTable } from "@/components/tools/table/toolsColumns";
+import { ToolsDataTable } from "@/components/tools-page/table/toolsColumns";
 import { prisma } from "@/lib/prisma";
 import translation from "@/translations/getTranslation";
 import { Tool } from "@prisma/client";

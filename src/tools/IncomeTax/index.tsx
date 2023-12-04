@@ -1,160 +1,16 @@
 "use client";
 import TabContainer from "@/components/dashboard/tabs/TabContainer";
 import Title from "@/components/shared/Title";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { getPercentage, minClamp, parseToEuro, parseToNumber } from "@/lib/money";
-import { cn } from "@/lib/utils";
+import { CheckBoxInput } from "@/components/tools/CheckboxInput";
+import { NumberInput } from "@/components/tools/NumberInput";
+import { ResultRow } from "@/components/tools/ResultRow";
+import { SelectInput } from "@/components/tools/SelectInput";
+import { getPercentage, minClamp } from "@/lib/money";
 import translations from "@/translations/getTranslation";
-import React from "react";
+import { useEffect } from "react";
 import { create } from "zustand";
 import { yearlyIncomeTaxValues } from "./values";
 
-export const ResultRow = ({
-  label,
-  value,
-  className,
-  valueClassName,
-}: {
-  label: string;
-  value: number;
-  className?: string;
-  valueClassName?: string;
-}) => {
-  return (
-    <li className={cn("flex justify-between items-center", className)}>
-      <span className="text-lg">{label}</span>{" "}
-      <span className={cn("font-serif text-2xl", valueClassName)}>
-        {parseToEuro(value)}
-      </span>
-    </li>
-  );
-};
-
-export const NumberInput: React.FC<{
-  name: string;
-  text: {
-    label?: string;
-    placeholder?: string;
-    description?: string;
-  };
-  defaultValue?: number;
-  onChange?: (value: number) => void;
-  value?: number;
-  className?: string;
-}> = ({
-  name,
-  text,
-  defaultValue,
-  className,
-  value,
-  onChange = () => { },
-}) => {
-    return (
-      <div className={cn("w-full pb-1", className)}>
-        <Label htmlFor={name} className="text-md">
-          {text.label}
-        </Label>
-        <Input
-          type="number"
-          placeholder={text.placeholder}
-          name={name}
-          defaultValue={defaultValue}
-          value={value}
-          onChange={(e) => onChange(parseToNumber(e.target.value))}
-        />
-        <p className="font-serif font-bold text-sm">{text.description}</p>
-      </div>
-    );
-  };
-
-export const CheckBoxInput: React.FC<{
-  name: string;
-  text: {
-    question: string;
-    description?: string;
-  };
-  defaultValue?: boolean;
-  onChange?: (value: boolean) => void;
-  value?: boolean;
-  className?: string;
-}> = ({
-  name,
-  text,
-  defaultValue,
-  className,
-  value,
-  onChange = () => { },
-}) => {
-    return (
-      <div className={cn("items-start flex space-x-2 pt-4", className)}>
-        <Checkbox id={name} defaultChecked={defaultValue} checked={value} onCheckedChange={onChange} />
-        <div>
-          <label
-            htmlFor={name}
-            className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            {text.question}
-          </label>
-          <p className="font-serif font-bold text-sm">{text.description}</p>
-        </div>
-      </div>
-    );
-  };
-
-export const SelectInput: React.FC<{
-  name: string;
-  text: {
-    label?: string;
-    placeholder?: string;
-    description?: string;
-  };
-  options: {
-    label: string;
-    value: string;
-  }[];
-  defaultValue?: string;
-  onChange?: (value: string) => void;
-  value?: string;
-  className?: string;
-}> = ({
-  name,
-  text,
-  options,
-  defaultValue,
-  className,
-  value,
-  onChange = () => { },
-}) => {
-    return (
-      <div>
-        <Label htmlFor={name} className="text-md">
-          {text.label}
-        </Label>
-        <Select defaultValue={defaultValue} value={value} name={name} onValueChange={onChange}>
-          <SelectTrigger className={cn(className)}>
-            <SelectValue placeholder={text.placeholder} />
-          </SelectTrigger>
-          <SelectContent>
-            {options.map((option) => (
-              <SelectItem key={option.value} value={option.value}>
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <p className="font-serif font-bold text-sm">{text.description}</p>
-      </div>
-    );
-  };
 
 interface ResultValues {
   business_income: number;
@@ -168,6 +24,15 @@ interface ResultValues {
   tax_credits: number;
   income_tax_due: number;
   health_insurance: number;
+
+  //Info
+  entrepreneur_deduction_link: string;
+  mkb_deduction_link: string;
+  income_tax_link: string;
+  general_tax_credit_link: string;
+  labor_discount_link: string;
+  health_insurance_link: string;
+  starter_deduction_link: string;
 }
 
 interface IncomeTaxState {
@@ -188,7 +53,6 @@ interface IncomeTaxState {
   setAnnualSalary: (value: number) => void;
   setTaxWithheld: (value: number) => void;
   setSalaried: (value: boolean) => void;
-
 
   //Calculations
   calculate: () => void;
@@ -215,6 +79,13 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
     tax_credits: 0,
     income_tax_due: 0,
     health_insurance: 0,
+    entrepreneur_deduction_link: "",
+    mkb_deduction_link: "",
+    income_tax_link: "",
+    general_tax_credit_link: "",
+    labor_discount_link: "",
+    health_insurance_link: "",
+    starter_deduction_link: "",
   },
 
   //Setters
@@ -303,6 +174,15 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
         //Final
         income_tax_due,
         health_insurance,
+
+        //Links
+        entrepreneur_deduction_link: yearlyValues.entrepreneur_deduction_link,
+        mkb_deduction_link: yearlyValues.mkb_deduction_link,
+        income_tax_link: yearlyValues.income_tax_link,
+        general_tax_credit_link: yearlyValues.general_tax_credit_link,
+        labor_discount_link: yearlyValues.labor_discount_link,
+        health_insurance_link: yearlyValues.health_insurance_link,
+        starter_deduction_link: yearlyValues.starter_deduction_link,
       }
     })
   }
@@ -310,6 +190,12 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
 
 const IncomeTax = () => {
   const store = useIncomeTaxStore();
+
+  useEffect(() => {
+    store.calculate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   return (
     <TabContainer
@@ -354,6 +240,10 @@ const IncomeTax = () => {
             text={translations.incomeTaxTool.details.form.starter_deduction}
             value={store.starter_deduction}
             onChange={store.setStarterDeduction}
+            infoLabel={{
+              read_more: store.results.starter_deduction_link,
+              description: translations.incomeTaxTool.info.starter_deduction,
+            }}
           />
           <CheckBoxInput
             name="salaried"
@@ -392,10 +282,20 @@ const IncomeTax = () => {
             <ResultRow
               label={translations.incomeTaxTool.result.entrepreneur_deduction}
               value={store.results.entrepreneur_deduction}
+              negative
+              infoLabel={{
+                read_more: store.results.entrepreneur_deduction_link,
+                description: translations.incomeTaxTool.info.entrepreneur_deduction,
+              }}
             />
             <ResultRow
               label={translations.incomeTaxTool.result.profit_exemption}
               value={store.results.profit_exemption}
+              negative
+              infoLabel={{
+                read_more: store.results.mkb_deduction_link,
+                description: translations.incomeTaxTool.info.mkb_deduction,
+              }}
             />
             <ResultRow
               label={translations.incomeTaxTool.result.wage}
@@ -408,18 +308,32 @@ const IncomeTax = () => {
             <ResultRow
               label={translations.incomeTaxTool.result.income_tax}
               value={store.results.income_tax}
+              infoLabel={{
+                read_more: store.results.income_tax_link,
+                description: translations.incomeTaxTool.info.income_tax,
+              }}
             />
             <ResultRow
               label={translations.incomeTaxTool.result.general_tax_credit}
               value={store.results.general_tax_credit}
+              infoLabel={{
+                read_more: store.results.general_tax_credit_link,
+                description: translations.incomeTaxTool.info.general_tax_credit,
+              }}
+              negative
             />
             <ResultRow
               label={translations.incomeTaxTool.result.labor_discount}
               value={store.results.labor_discount}
+              infoLabel={{
+                read_more: store.results.labor_discount_link,
+                description: translations.incomeTaxTool.info.labor_discount,
+              }}
             />
             <ResultRow
               label={translations.incomeTaxTool.result.tax_credits}
               value={store.results.tax_credits}
+              negative
             />
             <hr className=" my-2 border-theme-secondary" />
             <ResultRow
@@ -431,6 +345,10 @@ const IncomeTax = () => {
               className={"font-bold"}
               label={translations.incomeTaxTool.result.health_insurance}
               value={store.results.health_insurance}
+              infoLabel={{
+                read_more: store.results.health_insurance_link,
+                description: translations.incomeTaxTool.info.health_insurance,
+              }}
             />
           </ul>
         </div>

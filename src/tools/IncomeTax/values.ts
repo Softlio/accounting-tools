@@ -17,6 +17,14 @@ type YearlyIncomeTaxValues = {
     general_tax_credit: (value: number) => number;
     labor_discount: (value: number) => number;
     health_insurance_percentage: (value: number) => number;
+    //Links
+    entrepreneur_deduction_link: string;
+    mkb_deduction_link: string;
+    income_tax_link: string;
+    general_tax_credit_link: string;
+    labor_discount_link: string;
+    health_insurance_link: string;
+    starter_deduction_link: string;
   };
 };
 
@@ -73,6 +81,20 @@ export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
     health_insurance_percentage: (value) => {
       return calculatePercentageWithMax(value, 5.43, 66952);
     },
+    entrepreneur_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/ondernemersaftrek/ondernemersaftrek",
+    mkb_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/mkb_winstvrijstelling",
+    income_tax_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/",
+    general_tax_credit_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2023",
+    labor_discount_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2023",
+    health_insurance_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
+    starter_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/wanneer-heb-ik-recht-op-de-startersaftrek",
   },
   "2022": {
     entrepreneur_deduction: 6310,
@@ -130,6 +152,20 @@ export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
     health_insurance_percentage: (value) => {
       return calculatePercentageWithMax(value, 5.5, 59706);
     },
+    entrepreneur_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/ondernemersaftrek/ondernemersaftrek",
+    mkb_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/mkb_winstvrijstelling",
+    income_tax_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/",
+    general_tax_credit_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2022",
+    labor_discount_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2022",
+    health_insurance_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
+    starter_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/wanneer-heb-ik-recht-op-de-startersaftrek",
   },
   "2021": {
     entrepreneur_deduction: 6670,
@@ -187,5 +223,19 @@ export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
     health_insurance_percentage: (value) => {
       return calculatePercentageWithMax(value, 5.75, 58311);
     },
+    entrepreneur_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/ondernemersaftrek/ondernemersaftrek",
+    mkb_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/mkb_winstvrijstelling",
+    income_tax_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/",
+    general_tax_credit_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2021",
+    labor_discount_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2021",
+    health_insurance_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
+    starter_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/wanneer-heb-ik-recht-op-de-startersaftrek",
   },
 } as const;

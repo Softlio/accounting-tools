@@ -5,6 +5,7 @@ export const translations = {
     privacy: "Privacy Policy",
     noResults: "No results.",
     under_construction: "This page is under construction",
+    read_more: "Read more",
   },
   layout: {
     metadata: {
@@ -195,16 +196,32 @@ export const translations = {
     result: {
       title: "Result",
       business_income: "Income from business",
-      entrepreneur_deduction: "Sub: Entrepreneur's deduction",
-      profit_exemption: "Sub: Mkb-Profit exemption",
-      wage: "Add: Wage",
+      entrepreneur_deduction: "Entrepreneur's deduction",
+      profit_exemption: "Mkb-Profit exemption",
+      wage: "Wage",
       taxable_income: "Taxable income",
       income_tax: "Income tax (Tracks 1 to 4)",
       general_tax_credit: "General tax credit",
       labor_discount: "Labor discount",
-      tax_credits: "Sub: Tax credits",
+      tax_credits: "Tax credits",
       income_tax_due: "Income tax to be paid",
       health_insurance: "Health Insurance Act contribution to be paid",
+    },
+    info: {
+      entrepreneur_deduction:
+        "You can receive a business deduction if you are an entrepreneur and have profits from your business. For most components of the entrepreneur's deduction, you must meet the hours criterion.",
+      mkb_deduction:
+        "The Mkb profit exemption is a deduction from your profit. You receive this exemption if you are an entrepreneur. You will not receive an Mkb profit exemption on the profit you have made as a co-titleholder.",
+      income_tax:
+        "You can have 3 taxable incomes: in box 1, in box 2 and in box 3. You calculate how much tax you have to pay by applying the rates to the taxable incomes. You then reduce the tax amount you have calculated by 1 or more tax credits.",
+      general_tax_credit:
+        "The general tax credit is a discount on your income tax and national insurance contributions. This means you pay less tax and premiums. Everyone is entitled to the general tax credit.",
+      labor_discount:
+        "The employment tax credit is the tax credit you receive if you work. We calculate the labor tax credit on the labor income. Do you have an employer? Then he already takes the employment tax credit into account when calculating the payroll tax. If you file a tax return, you do not have to apply for the labor tax credit separately. We calculate this automatically.",
+      health_insurance:
+        "Your employer or benefits agency usually pays employer levies under the Healthcare Insurance Act (Zvw). But there are also situations in which you pay an income-related Zvw contribution (Zvw contribution) yourself. You will then receive a Zvw assessment or a provisional Zvw assessment.",
+      starter_deduction:
+        "The starter's deduction is an increase in the self-employed deduction. You will receive the starter's deduction a maximum of 3 times in the first 5 years that you are an entrepreneur. The following conditions apply",
     },
   },
 } as const;
