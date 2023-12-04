@@ -3,11 +3,13 @@ export const parseToEuro = (value: number, negative?: boolean): string => {
     return `${negative ? "-" : ""} € 0`;
   }
 
-  return new Intl.NumberFormat("nl-NL", {
+  const result = new Intl.NumberFormat("nl-NL", {
     style: "currency",
     currency: "EUR",
     maximumFractionDigits: 0,
-  }).format(value * (negative ? -1 : 1));
+  }).format(value);
+
+  return `${negative ? "-" : ""} ${result}`;
 };
 
 export const minClamp = (value: number, min: number = 0): number => {

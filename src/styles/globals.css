@@ -6,6 +6,11 @@ html,
 body,
 :root {
   height: 100%;
+
+  --theme-primary: #1f4230;
+  --theme-secondary: #d6ad60;
+  --theme-light: #ffffff;
+  --theme-dark: #192938;
 }
 
 @layer base {
