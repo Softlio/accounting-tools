@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -25,6 +25,7 @@ import {
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
+import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import translations from "@/translations/getTranslation";
 
 const formSchema = z.object({
@@ -71,78 +72,104 @@ const EditInfoForm: React.FC<{
         router.refresh();
     }
 
+    useEffect(() => {
+        if (!form.formState.isDirty) {
+            return;
+        }
+
+        const confirmationDialog = (e: Event) => {
+            e.preventDefault();
+            const result = window.confirm(translations.customer.edit.confirm_leave);
+
+            if (result) {
+                window.dispatchEvent(e);
+            }
+        }
+
+        window.addEventListener("beforeunload", confirmationDialog);
+        window.addEventListener("unload", confirmationDialog);
+
+
+        return () => {
+            window.removeEventListener("beforeunload", confirmationDialog);
+            window.removeEventListener("unload", confirmationDialog)
+        };
+    }, [form.formState]);
+
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{translations.customer.edit.form.email}</FormLabel>
-                            <FormControl>
-                                <Input placeholder={translations.customer.edit.form.emailPlaceholder} {...field} />
-                            </FormControl>
-                            <FormDescription>{translations.customer.edit.form.emailDescription}</FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="firstName"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{translations.customer.edit.form.firstName}</FormLabel>
-                            <FormControl>
-                                <Input placeholder={translations.customer.edit.form.firstNamePlaceholder} {...field} />
-                            </FormControl>
-                            <FormDescription>{translations.customer.edit.form.firstNameDescription}</FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{translations.customer.edit.form.lastName}</FormLabel>
-                            <FormControl>
-                                <Input placeholder={translations.customer.edit.form.lastNamePlaceholder} {...field} />
-                            </FormControl>
-                            <FormDescription>{translations.customer.edit.form.lastNameDescription}</FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="role"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{translations.customer.edit.form.role}</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FadeInAnimation>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{translations.customer.edit.form.email}</FormLabel>
                                 <FormControl>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder={translations.customer.edit.form.rolePlaceholder} />
-                                    </SelectTrigger>
+                                    <Input placeholder={translations.customer.edit.form.emailPlaceholder} {...field} />
                                 </FormControl>
-                                <SelectContent>
-                                    <SelectItem value="ADMIN">{translations.role.admin}</SelectItem>
-                                    <SelectItem value="USER">{translations.role.user}</SelectItem>
-                                </SelectContent>
-                            </Select>
-                            <FormDescription>
-                                {translations.customer.edit.form.roleDescription}
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">{translations.customer.edit.form.submit}</Button>
-            </form>
-        </Form>
+                                <FormDescription>{translations.customer.edit.form.emailDescription}</FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{translations.customer.edit.form.firstName}</FormLabel>
+                                <FormControl>
+                                    <Input placeholder={translations.customer.edit.form.firstNamePlaceholder} {...field} />
+                                </FormControl>
+                                <FormDescription>{translations.customer.edit.form.firstNameDescription}</FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{translations.customer.edit.form.lastName}</FormLabel>
+                                <FormControl>
+                                    <Input placeholder={translations.customer.edit.form.lastNamePlaceholder} {...field} />
+                                </FormControl>
+                                <FormDescription>{translations.customer.edit.form.lastNameDescription}</FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="role"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{translations.customer.edit.form.role}</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder={translations.customer.edit.form.rolePlaceholder} />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        <SelectItem value="ADMIN">{translations.role.admin}</SelectItem>
+                                        <SelectItem value="USER">{translations.role.user}</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                <FormDescription>
+                                    {translations.customer.edit.form.roleDescription}
+                                </FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <Button type="submit" disabled={form.formState.isSubmitting}>{translations.customer.edit.form.submit}</Button>
+                </form>
+            </Form>
+        </FadeInAnimation>
     );
 };
 

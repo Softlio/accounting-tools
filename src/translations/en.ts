@@ -137,6 +137,8 @@ export const translations = {
         success: "Customer updated successfully",
         error: "Error updating customer",
       },
+      confirm_leave:
+        "Are you sure you want to leave? Your changes won't be saved.",
     },
   },
   toolAccess: {

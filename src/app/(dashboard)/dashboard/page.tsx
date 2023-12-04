@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth";
 import { User } from "@prisma/client";
 import { getServerSession } from "next-auth";
 
+import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import translations from "@/translations/getTranslation";
 
 
@@ -16,9 +17,11 @@ const DashboardPage = async () => {
   return (
     <section className="min-h-[80vh]">
       <div className=" container mx-auto py-16 flex flex-col gap-6">
-        <Title>
-          {translations.dashboard.welcome.replace("{{name}}", user?.firstName ?? "User")}
-        </Title>
+        <FadeInAnimation>
+          <Title>
+            {translations.dashboard.welcome.replace("{{name}}", user?.firstName ?? "User")}
+          </Title>
+        </FadeInAnimation>
         <ToolTabs tools={tools} />
       </div>
     </section>

@@ -70,7 +70,7 @@ export const LoginForm = () => {
                     </FormItem>
                 )}
             />
-            <Button type="submit" className="bg-theme-secondary">{translations.login.form.submit}</Button>
+            <Button type="submit" className="bg-theme-secondary" disabled={form.formState.isSubmitting}>{translations.login.form.submit}</Button>
         </form>
     </Form>
 }

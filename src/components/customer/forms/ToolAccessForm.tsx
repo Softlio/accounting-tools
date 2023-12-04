@@ -8,6 +8,7 @@ import React from "react";
 import toast from "react-hot-toast";
 
 
+import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import translations from "@/translations/getTranslation";
 
 type Props = {
@@ -49,32 +50,34 @@ const ToolAccessForm: React.FC<Props> = ({ tools, toolAccess, user }) => {
             </p>
             <div>
                 <ul>
-                    {tools.map((tool) => {
+                    {tools.map((tool, i) => {
                         const checked = toolAccess.some((ta) => ta.toolId === tool.id && ta.access === true);
 
                         return (
-                            <div
-                                key={tool.id}
-                                className="flex items-center justify-between space-x-2 gap-3"
-                            >
-                                <Label className="flex flex-col space-y-1">
-                                    <span className="text-xl font-bold text-theme-primary">
-                                        {tool.name}
-                                    </span>
-                                    <span className="font-normal text-lg leading-snug text-muted-foreground">
-                                        {tool.description}
-                                    </span>
-                                </Label>
-                                <Switch
-                                    defaultChecked={checked}
-                                    onCheckedChange={(checked) => {
-                                        updateToolAccess(
-                                            tool.id,
-                                            checked
-                                        );
-                                    }}
-                                />
-                            </div>
+                            <FadeInAnimation key={tool.id} index={i + 1}>
+                                <div
+
+                                    className="flex items-center justify-between space-x-2 gap-3"
+                                >
+                                    <Label className="flex flex-col space-y-1">
+                                        <span className="text-xl font-bold text-theme-primary">
+                                            {tool.name}
+                                        </span>
+                                        <span className="font-normal text-lg leading-snug text-muted-foreground">
+                                            {tool.description}
+                                        </span>
+                                    </Label>
+                                    <Switch
+                                        defaultChecked={checked}
+                                        onCheckedChange={(checked) => {
+                                            updateToolAccess(
+                                                tool.id,
+                                                checked
+                                            );
+                                        }}
+                                    />
+                                </div>
+                            </FadeInAnimation>
                         );
                     })}
                 </ul>

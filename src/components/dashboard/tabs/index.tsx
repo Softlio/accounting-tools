@@ -1,4 +1,5 @@
 "use client";
+import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import IncomeTax from "@/tools/IncomeTax";
 import { Tool } from "@prisma/client";
@@ -44,13 +45,15 @@ const ToolTabs: React.FC<Props> = ({ tools }) => {
                 setSelectedTab(value);
             }}
         >
-            <TabsList>
-                {tools.map((tool) => (
-                    <TabsTrigger key={tool.id} value={tool.slug}>
-                        {tool.name}
-                    </TabsTrigger>
-                ))}
-            </TabsList>
+            <FadeInAnimation index={1}>
+                <TabsList>
+                    {tools.map((tool) => (
+                        <TabsTrigger key={tool.id} value={tool.slug}>
+                            {tool.name}
+                        </TabsTrigger>
+                    ))}
+                </TabsList>
+            </FadeInAnimation>
             {tools.map((tool) => {
                 const ToolTab = ToolTabMap[tool.slug];
                 if (!ToolTab) {
