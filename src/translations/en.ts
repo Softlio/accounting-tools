@@ -250,4 +250,21 @@ export const translations = {
       button: "Download",
     },
   },
+  downloadPages: {
+    goBack: "Go back",
+    incomeTax: {
+      notPaid: {
+        title: "This order hasn't been paid for yet",
+        description:
+          "Please pay for this order before downloading the file. You can pay for this order by clicking the button below.",
+        payNow: "Pay Now",
+      },
+      paid: {
+        title: "Thank you for purchasing the income tax calculation",
+        description:
+          "We appreciate your business. Click the button below to download the file.",
+        button: "Download",
+      },
+    },
+  },
 } as const;
