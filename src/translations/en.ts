@@ -6,6 +6,8 @@ export const translations = {
     noResults: "No results.",
     under_construction: "This page is under construction",
     read_more: "Read more",
+    yes: "Yes",
+    no: "No",
   },
   layout: {
     metadata: {
@@ -238,6 +240,50 @@ export const translations = {
       error: "Something went wrong with the calculation. Please try again.",
       error_revenue:
         "Please enter a valid revenue, revenue must be above 0 and below 1,000,000,000",
+    },
+    pdf: {
+      results: {
+        title: "Results",
+        description:
+          "Results of the income tax calculation. Go to the next page for more details.",
+        details: {
+          title: "Details",
+          revenue: "Revenue",
+          year: "Year",
+          hours_worked: "Hours worked",
+          starter_deduction: "Starter deduction",
+          salaried: "Salaried",
+          annual_salary: "Annual salary",
+          tax_withheld: "Tax withheld",
+        },
+        result: {
+          title: "Result",
+          business_income: "Income from business",
+          entrepreneur_deduction: "Entrepreneur's deduction",
+          profit_exemption: "Mkb-Profit exemption",
+          wage: "Wage",
+          taxable_income: "Taxable income",
+          income_tax: "Income tax (Tracks 1 to 4)",
+          general_tax_credit: "General tax credit",
+          labor_discount: "Labor discount",
+          tax_credits: "Tax credits",
+          income_tax_due: "Income tax to be paid",
+          health_insurance: "Health Insurance Act contribution to be paid",
+        },
+      },
+      moreInfo: {
+        title: "More info",
+        description: "More information about the income tax calculation.",
+      },
+      so: "FEM Financial Services - https://femfinancialservices.nl",
+      otherSource: {
+        title: "Other sources",
+        description:
+          "Other sources used to calculate the income tax calculation. Or sources that can help you with your income tax.",
+      },
+      otherSources: [
+        "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/hoe_werkt_inkomstenbelasting/aangifte_doen/",
+      ],
     },
   },
   orderPages: {

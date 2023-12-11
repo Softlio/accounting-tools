@@ -162,6 +162,8 @@ const IncomeTaxSection = () => {
                 workedMoreThan1225Hours: store.hours_worked,
                 eligibleForStarterDeduction: store.starter_deduction,
                 hadSalariedEmployment: store.salaried,
+                annualIncome: store.annual_salary,
+                taxWithheld: store.tax_withheld,
             }),
         });
 

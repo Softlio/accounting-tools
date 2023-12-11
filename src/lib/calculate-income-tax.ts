@@ -24,7 +24,7 @@ export interface IncomeTaxResultValues {
   starter_deduction_link: string;
 }
 
-interface Props {
+export interface IncomeTaxProps {
   revenue: number;
   year: string;
   hours_worked: boolean;
@@ -42,7 +42,7 @@ export const calculateIncomeTax = ({
   annual_salary,
   tax_withheld,
   salaried,
-}: Props): IncomeTaxResultValues => {
+}: IncomeTaxProps): IncomeTaxResultValues => {
   const yearlyValues = yearlyIncomeTaxValues[year ?? "2023"];
 
   let business_income = minClamp(revenue, 0);

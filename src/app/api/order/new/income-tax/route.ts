@@ -10,6 +10,8 @@ export async function POST(request: NextRequest) {
     workedMoreThan1225Hours,
     eligibleForStarterDeduction,
     hadSalariedEmployment,
+    annualIncome,
+    taxWithheld,
   } = await request.json();
 
   if (!revenue || !year) {
@@ -87,6 +89,8 @@ export async function POST(request: NextRequest) {
         workedMoreThan1225Hours: workedMoreThan1225Hours ?? false,
         eligibleForStarterDeduction: eligibleForStarterDeduction ?? false,
         hadSalariedEmployment: hadSalariedEmployment ?? false,
+        annualIncome: annualIncome ?? 0,
+        taxWithheld: taxWithheld ?? 0,
       },
     });
 

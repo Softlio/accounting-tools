@@ -90,7 +90,6 @@ const IncomeTaxDownload: React.FC<{
 
                 <DownloadButton link={`/api/download/income-tax/${params.id}`} />
 
-
                 <div className="flex items-center justify-center">
                     <a href="/" className="underline text-xl font-serif text-theme-dark hover:text-theme-secondary cursor-pointer w-min whitespace-nowrap">
                         {translations.downloadPages.goBack}
@@ -100,6 +99,7 @@ const IncomeTaxDownload: React.FC<{
             </div>
         </section>;
     } catch (error) {
+        console.error(error);
         return notFound();
     }
 };

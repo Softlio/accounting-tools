@@ -70,6 +70,8 @@ model IncomeTaxCalculation {
   workedMoreThan1225Hours Boolean
   eligibleForStarterDeduction Boolean
   hadSalariedEmployment Boolean
+  annualIncome  Float @default(0)
+  taxWithheld   Float @default(0)
 }
 
 model Payment {
