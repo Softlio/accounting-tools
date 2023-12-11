@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/dialog";
 import { IncomeTaxResultValues, calculateIncomeTax } from "@/lib/calculate-income-tax";
 import toast from "react-hot-toast";
+import { Input } from "../ui/input";
 
 
 
@@ -138,6 +139,7 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
 
 const IncomeTaxSection = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [email, setEmail] = useState("")
     const store = useIncomeTaxStore();
 
     useEffect(() => {
@@ -153,6 +155,11 @@ const IncomeTaxSection = () => {
             return;
         }
 
+        if (!email) {
+            toast.error(translations.incomeTaxTool.dialog.error_email);
+            return;
+        }
+
         setIsSubmitting(true)
         const res = await fetch("/api/order/new/income-tax", {
             method: "POST",
@@ -164,6 +171,7 @@ const IncomeTaxSection = () => {
                 hadSalariedEmployment: store.salaried,
                 annualIncome: store.annual_salary,
                 taxWithheld: store.tax_withheld,
+                email,
             }),
         });
 
@@ -344,14 +352,17 @@ const IncomeTaxSection = () => {
                                 </Button>
                             </DialogTrigger>
                             <DialogContent>
-                                <DialogHeader>
+                                <DialogHeader className=" mb-8">
                                     <DialogTitle>{translations.incomeTaxTool.dialog.title}</DialogTitle>
                                     <DialogDescription>
                                         {translations.incomeTaxTool.dialog.description}
                                     </DialogDescription>
                                 </DialogHeader>
+                                <Input name="email" type="email" placeholder="Email" className="w-full" value={email} onChange={(e) => {
+                                    setEmail(e.target.value)
+                                }} />
 
-                                <Button className="text-2xl font-bold mt-8 px-8 py-6 w-full bg-theme-secondary font-serif" onClick={order} disabled={isSubmitting} aria-disabled={isSubmitting}>
+                                <Button className="text-2xl font-bold px-8 py-6 w-full bg-theme-secondary font-serif" onClick={order} disabled={isSubmitting} aria-disabled={isSubmitting}>
                                     {translations.incomeTaxTool.result.calculate}
                                 </Button>
                             </DialogContent>

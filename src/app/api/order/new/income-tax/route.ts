@@ -12,9 +12,10 @@ export async function POST(request: NextRequest) {
     hadSalariedEmployment,
     annualIncome,
     taxWithheld,
+    email,
   } = await request.json();
 
-  if (!revenue || !year) {
+  if (!revenue || !year || !email) {
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.missingFields }),
       {
@@ -102,6 +103,8 @@ export async function POST(request: NextRequest) {
         }
       );
     }
+
+    //TODO:Send email
 
     return new NextResponse(
       JSON.stringify({ url: payment._links.checkout.href }),

@@ -240,6 +240,7 @@ export const translations = {
       error: "Something went wrong with the calculation. Please try again.",
       error_revenue:
         "Please enter a valid revenue, revenue must be above 0 and below 1,000,000,000",
+      error_email: "Please enter a valid email",
     },
     pdf: {
       results: {
