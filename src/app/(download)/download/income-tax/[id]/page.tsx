@@ -1,3 +1,4 @@
+import DownloadButton from "@/components/downloads/DownloadButton";
 import Title from "@/components/shared/Title";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
@@ -87,13 +88,8 @@ const IncomeTaxDownload: React.FC<{
                     </p>
                 </div>
 
-                <Button className=" hover:bg-theme-secondary"
-                // onClick={() => {
-                // //TODO: Download
-                // }}
-                >
-                    {translations.downloadPages.incomeTax.paid.button}
-                </Button>
+                <DownloadButton link={`/api/download/income-tax/${params.id}`} />
+
 
                 <div className="flex items-center justify-center">
                     <a href="/" className="underline text-xl font-serif text-theme-dark hover:text-theme-secondary cursor-pointer w-min whitespace-nowrap">
