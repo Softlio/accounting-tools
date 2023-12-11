@@ -4,9 +4,11 @@ import translations from "@/translations/getTranslation";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const { id } = await request.json();
+  const formData = await request.formData();
 
-  if (!id) {
+  const id = formData.get("id");
+
+  if (id === null) {
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.missingFields }),
       {
@@ -15,7 +17,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const payment = await mollieClient.payments.get(id);
+  const payment = await mollieClient.payments.get(id.toString());
 
   if (!payment) {
     return new NextResponse(
