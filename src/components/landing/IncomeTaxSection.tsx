@@ -10,7 +10,7 @@ import {
 import { getPercentage, minClamp } from "@/lib/money";
 import { yearlyIncomeTaxValues } from "@/tools/IncomeTax/values";
 import translations from "@/translations/getTranslation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { Button } from "../ui/button";
 
@@ -22,6 +22,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import toast from "react-hot-toast";
 
 interface ResultValues {
     business_income: number;
@@ -210,12 +211,37 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
 }));
 
 const IncomeTaxSection = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const store = useIncomeTaxStore();
 
     useEffect(() => {
         store.calculate();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const order = async () => {
+        if (isSubmitting) return
+
+        setIsSubmitting(true)
+        const res = await fetch("/api/order/new/income-tax", {
+            method: "POST",
+            body: JSON.stringify({
+                revenue: store.revenue,
+                year: store.year,
+                workedMoreThan1225Hours: store.hours_worked,
+                eligibleForStarterDeduction: store.starter_deduction,
+                hadSalariedEmployment: store.salaried,
+            }),
+        });
+
+        setIsSubmitting(false)
+        if (res.ok) {
+            const { url } = await res.json();
+            window.location.replace(url);
+            return;
+        }
+        toast.error(translations.incomeTaxTool.dialog.error);
+    }
 
     return (
         <section id="inkomsten-belasting" className="py-16 px-4 flex flex-col gap-8">
@@ -390,6 +416,10 @@ const IncomeTaxSection = () => {
                                         {translations.incomeTaxTool.dialog.description}
                                     </DialogDescription>
                                 </DialogHeader>
+
+                                <Button className="text-2xl font-bold mt-8 px-8 py-6 w-full bg-theme-secondary font-serif" onClick={order} disabled={isSubmitting} aria-disabled={isSubmitting}>
+                                    {translations.incomeTaxTool.result.calculate}
+                                </Button>
                             </DialogContent>
                         </Dialog>
                     </Card>

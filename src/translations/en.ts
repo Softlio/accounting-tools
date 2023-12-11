@@ -9,7 +9,7 @@ export const translations = {
   },
   layout: {
     metadata: {
-      title: "Admin by Khadija | Accounting tools",
+      title: "FEM Financial Services | Accounting tools",
       description: "Accounting tools for businesses",
     },
   },
@@ -44,6 +44,11 @@ export const translations = {
     doesntExist: "User doesn't exist",
     unauthorized: "Unauthorized",
   },
+  newOrder: {
+    missingFields: "Missing fields",
+    errorCreatingOrder: "Error creating order",
+    incomeTaxOrderDescription: "Income tax calculation order",
+  },
   ladingPage: {
     hero: {
       slogan: "Tools to quickly help you get your accounting in",
@@ -57,7 +62,8 @@ export const translations = {
       aboutUs: "About us",
       contact: "Contact",
       support: "Support",
-      copyRight: "Copyright © {{year}} Admin by Khadija, All rights reserved.",
+      copyRight:
+        "Copyright © {{year}} FEM Financial Services, All rights reserved.",
       terms:
         "KvKnummer is: 74388363 | Btw-nummer: NL002292190B32 | Terms and Conditions",
     },
@@ -227,8 +233,9 @@ export const translations = {
         "The starter's deduction is an increase in the self-employed deduction. You will receive the starter's deduction a maximum of 3 times in the first 5 years that you are an entrepreneur. The following conditions apply",
     },
     dialog: {
-      title: "Calculate",
+      title: "Calculate your income tax now",
       description: "Calculate your income tax now",
+      error: "Something went wrong with the calculation. Please try again.",
     },
   },
 } as const;

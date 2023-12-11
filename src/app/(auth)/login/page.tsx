@@ -39,7 +39,7 @@ const LoginPage = async () => {
                         <div className="absolute inset-0 bg-theme-primary" />
                         <div className="relative z-20 flex items-center text-lg font-medium">
                             <FadeInAnimation index={1}>
-                                <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} />
+                                <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} />
                             </FadeInAnimation>
                         </div>
                         <div className="relative z-20 mt-auto">
@@ -56,7 +56,7 @@ const LoginPage = async () => {
                         <FadeInAnimation index={1}>
                             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                                 <div className="relative z-20 flex items-center text-lg w-full justify-center font-medium lg:hidden">
-                                    <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} />
+                                    <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} />
                                 </div>
                                 <div className="flex flex-col space-y-2 text-center">
                                     <Title type="h1">

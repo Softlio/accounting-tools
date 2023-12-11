@@ -12,7 +12,7 @@ const Footer = () => {
             <div className='container flex gap-12 items-center md:items-end mx-auto justify-between flex-col md:flex-row'>
                 <div className='space-y-8 max-w-xl flex flex-col max-md:items-center  mx-4'>
                     <Link href={"https://adminbykhadija.nl/"}>
-                        <Image src="/images/logo-gold.svg" alt="Admin by Khadija" width={176} height={104} className='hover:opacity-60' />
+                        <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} className='hover:opacity-60' />
                     </Link>
                     <p className='text-theme-light font-serif text-xl text-center md:text-left'>
                         {translations.ladingPage.footer.excerpt}

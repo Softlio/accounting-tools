@@ -24,6 +24,7 @@ model User {
   role          Role     @default(USER)
   tools         ToolAccess[]
   preferences   Preference[]
+  payments      Payment[]
 }
 
 model Tool {
@@ -50,4 +51,41 @@ model Preference {
   user          User    @relation(fields: [userId], references: [id])
   key           String
   value         String
+}
+
+model Settings {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  key           String @unique
+  value         String
+}
+
+model IncomeTaxCalculation {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  paymentId     String  @db.ObjectId @unique
+  payment       Payment @relation(fields: [paymentId], references: [id])
+  
+  //Values
+  revenue       Float
+  year          Int
+  workedMoreThan1225Hours Boolean
+  eligibleForStarterDeduction Boolean
+  hadSalariedEmployment Boolean
+}
+
+model Payment {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  mollieId      String  @unique
+  userId        String?  @db.ObjectId
+  user          User?    @relation(fields: [userId], references: [id])
+  createdAt     DateTime
+  amount        String
+  currency      String
+  description   String?
+  method        String?
+  metadata      Json?
+  status        String?
+  expiresAt     DateTime?
+  checkoutUrl   String?
+  incomeTaxCalculation IncomeTaxCalculation?
+  paidAt        DateTime?
 }
