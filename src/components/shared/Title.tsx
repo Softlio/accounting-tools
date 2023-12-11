@@ -21,7 +21,7 @@ const Title = ({
 
     if (type === "h2") {
         return (
-            <h2 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+            <h2 className={cn("text-3xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
                 {children}
             </h2>
         )
@@ -29,7 +29,7 @@ const Title = ({
 
     if (type === "h3") {
         return (
-            <h3 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+            <h3 className={cn("text-2xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
                 {children}
             </h3>
         )
@@ -37,7 +37,7 @@ const Title = ({
 
     if (type === "h4") {
         return (
-            <h4 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+            <h4 className={cn("text-xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
                 {children}
             </h4>
         )
@@ -45,7 +45,7 @@ const Title = ({
 
     if (type === "h5") {
         return (
-            <h5 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+            <h5 className={cn("text-lg font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
                 {children}
             </h5>
         )
@@ -53,14 +53,14 @@ const Title = ({
 
     if (type === "h6") {
         return (
-            <h6 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+            <h6 className={cn("text-lg leading-none tracking-tight font-serif text-theme-primary", className)}>
                 {children}
             </h6>
         )
     }
 
     return (
-        <h3 className={cn("text-4xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
+        <h3 className={cn("text-2xl font-bold leading-none tracking-tight font-serif text-theme-primary", className)}>
             {children}
         </h3>
     )

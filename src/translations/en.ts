@@ -236,6 +236,18 @@ export const translations = {
       title: "Calculate your income tax now",
       description: "Calculate your income tax now",
       error: "Something went wrong with the calculation. Please try again.",
+      error_revenue:
+        "Please enter a valid revenue, revenue must be above 0 and below 1,000,000,000",
+    },
+  },
+  orderPages: {
+    moreTools: "Check out our other tools or services",
+    goBack: "Go back",
+    incomeTax: {
+      title: "Thank you for purchasing the income tax calculation",
+      description:
+        "We appreciate your business. Check your email for the download link and order details.",
+      button: "Download",
     },
   },
 } as const;

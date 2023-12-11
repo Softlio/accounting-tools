@@ -16,12 +16,14 @@ export const NumberInput: React.FC<{
     onChange?: (value: number) => void;
     value?: number;
     className?: string;
+    max?: number;
 }> = ({
     name,
     text,
     defaultValue,
     className,
     value,
+    max,
     onChange = () => { },
 }) => {
         return (
@@ -36,6 +38,7 @@ export const NumberInput: React.FC<{
                     defaultValue={defaultValue}
                     value={value}
                     onChange={(e) => onChange(parseToNumber(e.target.value))}
+                    max={max}
                 />
                 <p className="font-serif font-bold text-sm">{text.description}</p>
             </div>

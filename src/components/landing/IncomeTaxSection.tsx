@@ -222,6 +222,11 @@ const IncomeTaxSection = () => {
     const order = async () => {
         if (isSubmitting) return
 
+        if (store.revenue <= 0 || store.revenue > 10000000000) {
+            toast.error(translations.incomeTaxTool.dialog.error_revenue);
+            return;
+        }
+
         setIsSubmitting(true)
         const res = await fetch("/api/order/new/income-tax", {
             method: "POST",
@@ -259,6 +264,7 @@ const IncomeTaxSection = () => {
                                 name="revenue"
                                 text={translations.incomeTaxTool.details.form.revenue}
                                 defaultValue={0}
+                                max={10000000000}
                                 onChange={store.setRevenue}
                             />
                             <SelectInput
