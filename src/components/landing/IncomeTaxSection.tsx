@@ -21,6 +21,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { IncomeTaxResultValues, calculateIncomeTax } from "@/lib/calculate-income-tax";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { Input } from "../ui/input";
 
@@ -352,12 +353,19 @@ const IncomeTaxSection = () => {
                                 </Button>
                             </DialogTrigger>
                             <DialogContent>
-                                <DialogHeader className=" mb-8">
+                                <DialogHeader>
                                     <DialogTitle>{translations.incomeTaxTool.dialog.title}</DialogTitle>
                                     <DialogDescription>
                                         {translations.incomeTaxTool.dialog.description}
                                     </DialogDescription>
                                 </DialogHeader>
+
+                                <Image width={500} height={500} className="w-96 mx-auto" src="/images/income-tax.webp" alt="product image" />
+
+                                <p className="py-6">
+                                    {translations.incomeTaxTool.dialog.item_description}
+                                </p>
+
                                 <Input name="email" type="email" placeholder="Email" className="w-full" value={email} onChange={(e) => {
                                     setEmail(e.target.value)
                                 }} />

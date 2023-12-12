@@ -241,6 +241,8 @@ export const translations = {
       error_revenue:
         "Please enter a valid revenue, revenue must be above 0 and below 1,000,000,000",
       error_email: "Please enter a valid email",
+      item_description:
+        "Pay €10.00 to calculate your income tax and download the results. In an nice PDF format with all the details and information.",
     },
     pdf: {
       results: {

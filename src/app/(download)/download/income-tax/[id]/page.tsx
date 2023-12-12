@@ -3,6 +3,7 @@ import Title from "@/components/shared/Title";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -12,7 +13,7 @@ const IncomeTaxNotPaid: React.FC<{
 }> = ({
     paymentUrl,
 }) => {
-        return <section>
+        return <section className="py-12">
             <div className="container mx-auto text-center flex justify-center flex-col items-center gap-8 px-2">
                 <div className=" space-y-2">
                     <Title type="h1">
@@ -76,8 +77,10 @@ const IncomeTaxDownload: React.FC<{
             return <IncomeTaxNotPaid paymentUrl={incomeTaxCalculation.payment.checkoutUrl} />;
         }
 
-        return <section>
+        return <section className="py-12">
             <div className="container mx-auto flex flex-col gap-8 items-center justify-center text-center py-2">
+
+                <Image src={"/images/income-tax.webp"} width={250} height={250} alt={"Product image"} />
 
                 <div className="gap-2 flex flex-col items-center justify-center">
                     <Title type="h1">

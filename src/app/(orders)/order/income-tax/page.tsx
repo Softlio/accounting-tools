@@ -1,5 +1,6 @@
 import Title from "@/components/shared/Title"
 import translation from "@/translations/getTranslation"
+import Image from "next/image"
 import Link from "next/link"
 
 
@@ -8,8 +9,8 @@ const IncomeTaxOrderPage = () => {
     <section className=" py-12">
       <div className="container mx-auto flex flex-col gap-4">
         <div className=" flex gap-4 flex-col items-center md:flex-row">
-          <div className="bg-red-500">
-
+          <div>
+            <Image src={"/images/income-tax.webp"} width={200} height={200} alt={"Product image"} />
           </div>
           <div className=" space-y-2">
             <Title type="h1">
