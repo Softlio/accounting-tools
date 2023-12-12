@@ -243,6 +243,7 @@ export const translations = {
       error_email: "Please enter a valid email",
       item_description:
         "Pay €10.00 to calculate your income tax and download the results. In an nice PDF format with all the details and information.",
+      name: "Name",
     },
     pdf: {
       results: {
@@ -287,6 +288,17 @@ export const translations = {
       otherSources: [
         "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/hoe_werkt_inkomstenbelasting/aangifte_doen/",
       ],
+    },
+    email: {
+      preview: "Thank you for ordering on FEM Financial Services",
+      thankYou: "Thank you for ordering on",
+      name: "FEM Financial Services",
+      description:
+        "Thank you for ordering on FEM Financial Services. Once the payment is received, The button below will be enabled to download your PDF.",
+      questions:
+        "If you have any questions, please contact us at info@femfinancialservice.nl",
+      goodBye: "Best regards",
+      subject: "Thank you for ordering on FEM Financial Services",
     },
   },
   orderPages: {

@@ -1,5 +1,7 @@
+import { transporter } from "@/lib/email";
 import { mollieClient } from "@/lib/mollie";
 import { prisma } from "@/lib/prisma";
+import { getIncomeTaxEmail } from "@/tools/IncomeTax/getIncomeTaxEmail";
 import translations from "@/translations/getTranslation";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,6 +15,7 @@ export async function POST(request: NextRequest) {
     annualIncome,
     taxWithheld,
     email,
+    name,
   } = await request.json();
 
   if (!revenue || !year || !email) {
@@ -82,7 +85,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    await prisma.incomeTaxCalculation.create({
+    const incomeTaxCalculation = await prisma.incomeTaxCalculation.create({
       data: {
         paymentId: prismaPayment.id,
         revenue,
@@ -104,7 +107,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    //TODO:Send email
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM,
+      to: email,
+      subject: translations.incomeTaxTool.email.subject,
+      html: getIncomeTaxEmail({
+        name: name ?? "User",
+        link: `${process.env.NEXT_PUBLIC_BASE_URL}/download/income-tax/${incomeTaxCalculation.id}`,
+        orderId: incomeTaxCalculation.id,
+      }),
+    });
 
     return new NextResponse(
       JSON.stringify({ url: payment._links.checkout.href }),

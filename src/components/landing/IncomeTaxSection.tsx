@@ -141,6 +141,7 @@ const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
 const IncomeTaxSection = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
     const store = useIncomeTaxStore();
 
     useEffect(() => {
@@ -173,6 +174,7 @@ const IncomeTaxSection = () => {
                 annualIncome: store.annual_salary,
                 taxWithheld: store.tax_withheld,
                 email,
+                name,
             }),
         });
 
@@ -366,7 +368,11 @@ const IncomeTaxSection = () => {
                                     {translations.incomeTaxTool.dialog.item_description}
                                 </p>
 
-                                <Input name="email" type="email" placeholder="Email" className="w-full" value={email} onChange={(e) => {
+                                <Input name="name" type="text" placeholder={translations.incomeTaxTool.dialog.name} className="w-full" value={name} onChange={(e) => {
+                                    setName(e.target.value)
+                                }} />
+
+                                <Input name="email" type="email" placeholder="Email *" className="w-full" value={email} onChange={(e) => {
                                     setEmail(e.target.value)
                                 }} />
 
