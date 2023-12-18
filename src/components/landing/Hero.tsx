@@ -17,14 +17,14 @@ const Hero = () => {
                 <SlideAnimation>
                     <FadeInAnimation index={1}>
                         <h1 className='text-5xl md:text-7xl font-serif text-theme-light lg:max-w-3xl'>
-                            {translations.ladingPage.hero.slogan}
+                            {translations.landingPage.hero.slogan}
                         </h1>
                     </FadeInAnimation>
                 </SlideAnimation>
                 <SlideAnimation index={1}>
                     <FadeInAnimation index={2}>
                         <p className="text-xl font-bold text-theme-light">
-                            {translations.ladingPage.hero.description}
+                            {translations.landingPage.hero.description}
                         </p>
                     </FadeInAnimation>
                 </SlideAnimation>
@@ -33,12 +33,12 @@ const Hero = () => {
                         <div className='font-serif flex gap-4 flex-wrap'>
                             <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
                                 <Link href='/login'>
-                                    {translations.ladingPage.hero.loginButton}
+                                    {translations.landingPage.hero.loginButton}
                                 </Link>
                             </Button>
                             <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
                                 <Link href='/register'>
-                                    {translations.ladingPage.hero.registerButton}
+                                    {translations.landingPage.hero.registerButton}
                                 </Link>
                             </Button>
                         </div>

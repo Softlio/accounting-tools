@@ -15,28 +15,28 @@ const Footer = () => {
                         <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} className='hover:opacity-60' />
                     </Link>
                     <p className='text-theme-offwhite font-serif text-xl text-center md:text-left'>
-                        {translations.ladingPage.footer.excerpt}
+                        {translations.landingPage.footer.excerpt}
                     </p>
                 </div>
                 <ul className='grid grid-cols-3 text-center md:text-left md:grid-cols-2 text-theme-offwhite transition-opacity font-serif text-2xl h-min gap-4 md:gap-8 max-w-xl w-full whitespace-nowrap'>
                     <li>
                         <Link href="https://adminbykhadija.nl/over-ons/" target='_blank'>
                             <span className='hover:opacity-50'>
-                                {translations.ladingPage.footer.aboutUs}
+                                {translations.landingPage.footer.aboutUs}
                             </span>
                         </Link>
                     </li>
                     <li>
                         <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
                             <span className='hover:opacity-50'>
-                                {translations.ladingPage.footer.contact}
+                                {translations.landingPage.footer.contact}
                             </span>
                         </Link>
                     </li>
                     <li>
                         <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
                             <span className='hover:opacity-50'>
-                                {translations.ladingPage.footer.support}
+                                {translations.landingPage.footer.support}
                             </span>
                         </Link>
                     </li>
@@ -49,11 +49,11 @@ const Footer = () => {
                 <div className='flex flex-col md:flex-row items-center justify-between w-full mx-4 gap-8'>
                     <div className='space-y-2'>
                         <p className='text-theme-offwhite font-serif max-md:text-center'>
-                            {translations.ladingPage.footer.copyRight.replace("{{year}}", year)}
+                            {translations.landingPage.footer.copyRight.replace("{{year}}", year)}
                         </p>
                         <p className='text-theme-offwhite font-serif max-md:text-center'>
                             <Link href="https://adminbykhadija.nl/algemene-voorwaarden/">
-                                {translations.ladingPage.footer.terms}
+                                {translations.landingPage.footer.terms}
                             </Link>
                         </p>
                     </div>

@@ -51,7 +51,7 @@ export const translations = {
     errorCreatingOrder: "Error creating order",
     incomeTaxOrderDescription: "Income tax calculation order",
   },
-  ladingPage: {
+  landingPage: {
     hero: {
       slogan: "Tools to quickly help you get your accounting in",
       description: "Accounting tools for small businesses",
