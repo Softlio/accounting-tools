@@ -56,6 +56,8 @@ module.exports = {
         "theme-secondary": "#D6AD60",
         "theme-light": "#FFFFFF",
         "theme-dark": "#192938",
+        "theme-accent": "#BADECC",
+        "theme-offwhite": "#F2E6CF",
       },
       borderRadius: {
         lg: "var(--radius)",

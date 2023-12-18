@@ -17,7 +17,7 @@ const LogoutPage = async () => {
     }
 
     return (
-        <main className='w-full h-full bg-theme-dark flex justify-center items-center'>
+        <main className='w-full h-full bg-theme-accent flex justify-center items-center'>
             <FadeInAnimation>
                 <Card className='w-[400px] rounded-none'>
                     <CardHeader className='space-y-4'>
