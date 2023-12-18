@@ -1,7 +1,7 @@
 import translations from '@/translations/getTranslation'
 import Image from 'next/image'
 import Link from 'next/link'
-import HeroImage from '../../../public/images/hero-1.webp'
+import HeroImage from '../../../public/images/hero-2.webp'
 import FadeInAnimation from '../animations/FadeInAnimation'
 import SlideAnimation from '../animations/SlideAnimation'
 import { Button } from '../ui/button'
