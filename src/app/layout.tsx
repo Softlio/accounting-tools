@@ -6,12 +6,12 @@ import type { Metadata } from "next";
 import { Abhaya_Libre, Inter } from "next/font/google";
 import { Toaster } from 'react-hot-toast';
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const abhayaLibre = Abhaya_Libre({
+const abhayaLibre = Abhaya_Libre({
   subsets: ["latin-ext"],
   variable: "--font-serif",
   weight: ["400", "500", "600", "700"],
