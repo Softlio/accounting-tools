@@ -195,7 +195,7 @@ const IncomeTaxSection = () => {
             </div>
             <div className="container mx-auto">
                 <div className="grid md:grid-cols-2 gap-8">
-                    <Card className="max-w-xl space-y-2 p-6 rounded-none">
+                    <Card className="max-w-xl space-y-2 p-6">
                         <Title type="h4">{translations.incomeTaxTool.details.title}</Title>
 
                         <div className="flex gap-3 w-full">
@@ -261,7 +261,7 @@ const IncomeTaxSection = () => {
                             </>
                         )}
                     </Card>
-                    <Card className="max-w-xl flex flex-col gap-2 p-6 rounded-none">
+                    <Card className="max-w-xl flex flex-col gap-2 p-6">
                         <Title type="h4">{translations.incomeTaxTool.result.title}</Title>
                         <ul className="px-2 flex flex-col gap-1">
                             <ResultRow

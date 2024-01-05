@@ -19,7 +19,7 @@ const LogoutPage = async () => {
     return (
         <main className='w-full h-full bg-theme-accent flex justify-center items-center'>
             <FadeInAnimation>
-                <Card className='w-[400px] rounded-none'>
+                <Card className='w-[400px]'>
                     <CardHeader className='space-y-4'>
                         <div className='w-full flex justify-center items-center py-4'>
                             <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} />

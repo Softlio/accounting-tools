@@ -13,7 +13,7 @@ const TabContainer: React.FC<Props> = ({ value, title, children }) => {
     return (
         <TabsContent value={value} className="w-full mt-4">
             <FadeInAnimation index={2}>
-                <Card className=" rounded-none">
+                <Card className="">
                     <CardHeader>
                         <CardTitle className=" text-4xl leading-none">{title}</CardTitle>
                     </CardHeader>

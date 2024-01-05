@@ -36,11 +36,11 @@ const Hero = () => {
                                     {translations.landingPage.hero.loginButton}
                                 </Link>
                             </Button>
-                            <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
+                            {/* <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
                                 <Link href='/register'>
                                     {translations.landingPage.hero.registerButton}
                                 </Link>
-                            </Button>
+                            </Button> */}
                         </div>
                     </FadeInAnimation>
                 </SlideAnimation>
