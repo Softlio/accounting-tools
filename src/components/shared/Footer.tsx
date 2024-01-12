@@ -1,5 +1,5 @@
 import translations from '@/translations/getTranslation'
-import { FacebookIcon, InstagramIcon } from 'lucide-react'
+import { FacebookIcon, InstagramIcon, LinkedinIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,37 +9,37 @@ const Footer = () => {
 
     return (
         <footer className="w-full bg-theme-primary py-12">
-            <div className='container flex gap-12 items-center md:items-end mx-auto justify-between flex-col md:flex-row'>
-                <div className='space-y-8 max-w-xl flex flex-col max-md:items-center  mx-4'>
-                    <Link href={"https://adminbykhadija.nl/"}>
-                        <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={176} height={104} className='hover:opacity-60' />
+            <div className='container flex'>
+                <div className='space-y-8 max-w-xl flex flex-col items-center mx-4'>
+                    <Link href={"https://femfinancialservices.nl/"}>
+                        <Image src="/images/logo-gold.svg" alt="FEM Financial Services" width={226} height={154} className='hover:opacity-60' />
                     </Link>
-                    <p className='text-theme-offwhite font-serif text-xl text-center md:text-left'>
+                    {/* <p className='text-theme-offwhite font-serif text-xl text-center md:text-left'>
                         {translations.landingPage.footer.excerpt}
-                    </p>
+                    </p> */}
                 </div>
                 <ul className='grid grid-cols-3 text-center md:text-left md:grid-cols-2 text-theme-offwhite transition-opacity font-serif text-2xl h-min gap-4 md:gap-8 max-w-xl w-full whitespace-nowrap'>
-                    <li>
-                        <Link href="https://adminbykhadija.nl/over-ons/" target='_blank'>
+                    {/* <li>
+                        <Link href="https://femfinancialservices.nl/over-ons/" target='_blank'>
                             <span className='hover:opacity-50'>
                                 {translations.landingPage.footer.aboutUs}
                             </span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
+                        <Link href="https://femfinancialservices.nl/contact-us/" target='_blank'>
                             <span className='hover:opacity-50'>
                                 {translations.landingPage.footer.contact}
                             </span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="https://adminbykhadija.nl/contact-us/" target='_blank'>
+                        <Link href="https://femfinancialservices.nl/contact-us/" target='_blank'>
                             <span className='hover:opacity-50'>
                                 {translations.landingPage.footer.support}
                             </span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className='container mx-auto'>
@@ -52,7 +52,7 @@ const Footer = () => {
                             {translations.landingPage.footer.copyRight.replace("{{year}}", year)}
                         </p>
                         <p className='text-theme-offwhite font-serif max-md:text-center'>
-                            <Link href="https://adminbykhadija.nl/algemene-voorwaarden/">
+                            <Link href="https://femfinancialservices.nl/algemene-voorwaarden/">
                                 {translations.landingPage.footer.terms}
                             </Link>
                         </p>
@@ -63,6 +63,9 @@ const Footer = () => {
                         </Link>
                         <Link href='https://www.facebook.com/people/Boekhouder-Khadija/100068015234539/'>
                             <FacebookIcon size={32} className='text-theme-offwhite hover:text-theme-secondary transition-colors' />
+                        </Link>
+                        <Link href='https://www.linkedin.com/company/fem-financial-services/about/'>
+                            <LinkedinIcon size={32} className='text-theme-offwhite hover:text-theme-secondary transition-colors' />
                         </Link>
                     </div>
                 </div>

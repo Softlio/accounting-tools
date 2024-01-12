@@ -1,10 +1,8 @@
 import translations from '@/translations/getTranslation'
 import Image from 'next/image'
-import Link from 'next/link'
-import HeroImage from '../../../public/images/hero-2.webp'
+import HeroImage from '../../../public/images/hero-3.webp'
 import FadeInAnimation from '../animations/FadeInAnimation'
 import SlideAnimation from '../animations/SlideAnimation'
-import { Button } from '../ui/button'
 
 const Hero = () => {
     return (
@@ -21,21 +19,21 @@ const Hero = () => {
                         </h1>
                     </FadeInAnimation>
                 </SlideAnimation>
-                <SlideAnimation index={1}>
+                {/* <SlideAnimation index={1}>
                     <FadeInAnimation index={2}>
                         <p className="text-xl font-bold text-theme-light">
                             {translations.landingPage.hero.description}
                         </p>
                     </FadeInAnimation>
-                </SlideAnimation>
+                </SlideAnimation> */}
                 <SlideAnimation index={2}>
                     <FadeInAnimation index={3}>
                         <div className='font-serif flex gap-4 flex-wrap'>
-                            <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
+                            {/* <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
                                 <Link href='/login'>
                                     {translations.landingPage.hero.loginButton}
                                 </Link>
-                            </Button>
+                            </Button> */}
                             {/* <Button size={"lg"} asChild className='text-xl px-10 py-6 hover:bg-theme-secondary transition-colors duration-300'>
                                 <Link href='/register'>
                                     {translations.landingPage.hero.registerButton}
