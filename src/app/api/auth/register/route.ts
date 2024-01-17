@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const { email, password, firstName, lastName } = await request.json();
+  const { email, password, firstName, lastName, role } = await request.json();
 
   if (!email || !password || !firstName || !lastName) {
     return new NextResponse(
@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
       password: saltedPassword,
       firstName: firstName,
       lastName: lastName,
+      role: role ?? "USER",
     },
   });
 

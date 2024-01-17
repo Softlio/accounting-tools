@@ -51,7 +51,12 @@ const UserNav = () => {
                 </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <Link href="/admin">
+                    {/* <Link href="/admin">
+                        <DropdownMenuItem>
+                            {translations.admin.navbar.dashboard}
+                        </DropdownMenuItem>
+                    </Link> */}
+                    <Link href="/admin/customers">
                         <DropdownMenuItem>
                             {translations.admin.navbar.dashboard}
                         </DropdownMenuItem>
@@ -66,11 +71,11 @@ const UserNav = () => {
                             {translations.admin.navbar.tools}
                         </DropdownMenuItem>
                     </Link>
-                    <Link href="/admin/settings">
+                    {/* <Link href="/admin/settings">
                         <DropdownMenuItem>
                             {translations.admin.navbar.settings}
                         </DropdownMenuItem>
-                    </Link>
+                    </Link> */}
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <Link href="/logout">

@@ -2,10 +2,8 @@ import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import LoginAlert from "@/components/auth/LoginAlert";
 import { LoginForm } from "@/components/auth/LoginForm";
 import Title from "@/components/shared/Title";
-import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { authOptions } from "@/lib/auth";
-import { cn } from "@/lib/utils";
 import translations from "@/translations/getTranslation";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
@@ -24,7 +22,7 @@ const LoginPage = async () => {
         <main className="w-full h-full flex justify-center items-center bg-theme-accent">
             <section>
                 <Card className="container max-w-[96%] border-theme-accent max-sm:shadow-none shadow-xl max-sm:border-none overflow-hidden relative h-[800px] flex-col items-center justify-center grid lg:grid-cols-2 lg:px-0">
-                    <Link
+                    {/* <Link
                         href="/register"
                         className={cn(
                             buttonVariants({ variant: "ghost" }),
@@ -34,7 +32,7 @@ const LoginPage = async () => {
                         <FadeInAnimation index={1}>
                             {translations.login.registerButton}
                         </FadeInAnimation>
-                    </Link>
+                    </Link> */}
                     <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
                         <div className="absolute inset-0 bg-theme-primary" />
                         <div className="relative z-20 flex items-center text-lg font-medium">

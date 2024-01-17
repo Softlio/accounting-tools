@@ -34,18 +34,18 @@ const NavMenu = () => {
                 "items-center hidden md:flex space-x-4 lg:space-x-6 justify-center text-theme-light font-serif font-bold text-xl"
             )}
         >
-            <NavItem current={pathname} href="/admin">
+            {/* <NavItem current={pathname} href="/admin">
                 {translations.admin.navbar.dashboard}
-            </NavItem>
+            </NavItem> */}
             <NavItem current={pathname} href="/admin/customers">
                 {translations.admin.navbar.customers}
             </NavItem>
             <NavItem current={pathname} href="/admin/tools">
                 {translations.admin.navbar.tools}
             </NavItem>
-            <NavItem current={pathname} href="/admin/settings">
+            {/* <NavItem current={pathname} href="/admin/settings">
                 {translations.admin.navbar.settings}
-            </NavItem>
+            </NavItem> */}
         </div>
     );
 };

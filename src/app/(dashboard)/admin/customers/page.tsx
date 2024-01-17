@@ -1,3 +1,4 @@
+import AddUserForm from "@/components/admin/AddUserForm";
 import { CustomerDataTable } from "@/components/customer/table/customerColumns";
 import Title from "@/components/shared/Title";
 import RefreshButton from "@/components/shared/refreshButton";
@@ -24,7 +25,10 @@ const CustomerPage = async () => {
                 <Title>
                     {translation.admin.customer.title}
                 </Title>
-                <RefreshButton />
+                <div className="flex gap-3">
+                    <AddUserForm />
+                    <RefreshButton />
+                </div>
             </div>
             <CustomerDataTable data={data} />
         </div>

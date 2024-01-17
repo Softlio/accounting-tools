@@ -152,6 +152,22 @@ export const translations = {
       confirm_leave:
         "Weet u zeker dat u wilt vertrekken? Uw wijzigingen worden niet opgeslagen.",
     },
+    add: {
+      title: "Klant toevoegen",
+      form: {
+        firstName: "Voornaam",
+        lastName: "Achternaam",
+        email: "E-mail",
+        password: "Wachtwoord",
+        passwordConfirmation: "Bevestig wachtwoord",
+        role: {
+          label: "Rol",
+          user: "Gebruiker",
+          admin: "Beheerder",
+        },
+        submit: "Toevoegen",
+      },
+    },
   },
   toolAccess: {
     toast: {
@@ -329,5 +345,10 @@ export const translations = {
         button: "Downloaden",
       },
     },
+  },
+  noTools: {
+    description:
+      "Je hebt geen gereedschap beschikbaar. Neem contact op met de beheerder om toegang te krijgen tot tools. Of ga naar de gereedschapswinkel om gereedschap te kopen.",
+    title: "Geen tools beschikbaar",
   },
 } as const;

@@ -70,18 +70,23 @@ const UserNav = ({
                 {isAdmin && (
                     <>
                         <DropdownMenuSeparator />
-                        <Link href="/admin">
+                        {/* <Link href="/admin">
+                            <DropdownMenuItem>
+                                {translations.dashboard.navbar.admin}
+                            </DropdownMenuItem>
+                        </Link> */}
+                        <Link href="/admin/customers">
                             <DropdownMenuItem>
                                 {translations.dashboard.navbar.admin}
                             </DropdownMenuItem>
                         </Link>
                     </>
                 )}
-                <Link href="/dashboard/settings">
+                {/* <Link href="/dashboard/settings">
                     <DropdownMenuItem>
                         {translations.dashboard.navbar.settings}
                     </DropdownMenuItem>
-                </Link>
+                </Link> */}
                 <DropdownMenuSeparator />
                 <Link href="/logout" passHref>
                     <DropdownMenuItem>

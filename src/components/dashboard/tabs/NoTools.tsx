@@ -1,13 +1,14 @@
 import Title from '@/components/shared/Title'
+import getTranslation from '@/translations/getTranslation'
 
 const NoTools = () => {
     return (
         <div className='w-full flex flex-col justify-center items-center  text-center'>
             <Title className='text-5xl md:text-7xl text-theme-secondary'>
-                No tools available
+                {getTranslation.noTools.title}
             </Title>
             <p className='max-w-xl'>
-                You have no tools available. To get access to tools, please contact the administrator. Or go to the tool store to buy tools.
+                {getTranslation.noTools.description}
             </p>
         </div>
     )
