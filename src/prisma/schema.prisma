@@ -25,6 +25,8 @@ model User {
   tools         ToolAccess[]
   preferences   Preference[]
   payments      Payment[]
+  logEvents     LogEvent[]
+  active        Boolean  @default(true)
 }
 
 model Tool {
@@ -74,6 +76,18 @@ model IncomeTaxCalculation {
   taxWithheld   Float @default(0)
 }
 
+model TempIncomTaxCalculation {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  //Values
+  revenue       Float
+  year          Int
+  workedMoreThan1225Hours Boolean
+  eligibleForStarterDeduction Boolean
+  hadSalariedEmployment Boolean
+  annualIncome  Float @default(0)
+  taxWithheld   Float @default(0)
+}
+
 model Payment {
   id  String  @id @default(auto()) @map("_id") @db.ObjectId
   mollieId      String  @unique
@@ -90,4 +104,27 @@ model Payment {
   checkoutUrl   String?
   incomeTaxCalculation IncomeTaxCalculation?
   paidAt        DateTime?
+}
+
+enum LogEventType {
+  LOGIN
+  GENERATE_INCOME_TAX_CALCULATION
+  PAYMENT_CREATED
+  PAYMENT_REVIEVED
+  DOWNLOAD
+  NAVIGATE
+  LOGOUT
+  ACCOUNT_CREATED
+  ACCOUNT_UPDATED
+  ACCOUNT_DELETED
+  TOOL_ACCESS
+}
+
+model LogEvent {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String?  @db.ObjectId
+  user          User?    @relation(fields: [userId], references: [id])
+  type          LogEventType
+  data          Json?
+  createdAt     DateTime @default(now())
 }
