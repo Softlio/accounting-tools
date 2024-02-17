@@ -7,6 +7,7 @@ import { getServerSession } from "next-auth";
 
 import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import FirstLoginAlert from "@/components/auth/FirstLoginAlert";
+import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
 
 
@@ -14,6 +15,14 @@ const DashboardPage = async () => {
   const session = await getServerSession(authOptions);
   const user = session?.user as User | undefined;
   const tools = await getUserToolsServer();
+  const userData = await prisma.user.findFirst({
+    where: {
+      id: user?.id,
+    },
+    select: {
+      firstLogin: true,
+    }
+  });
 
   return (
     <section className="min-h-[80vh]">
@@ -24,7 +33,7 @@ const DashboardPage = async () => {
           </Title>
         </FadeInAnimation>
         <ToolTabs tools={tools} />
-        {user?.firstLogin && <FirstLoginAlert id={user?.id} />}
+        {userData?.firstLogin && <FirstLoginAlert id={user?.id} />}
       </div>
     </section>
   );
