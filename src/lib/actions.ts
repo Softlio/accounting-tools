@@ -52,3 +52,51 @@ export async function createUser(prevState: any, formData: FormData) {
 
   redirect("/admin/customers/" + newUser.id);
 }
+
+export async function firstLogin(prevState: any, formData: FormData) {
+  const rawFormData = {
+    password: formData.get("password"),
+    confirm: formData.get("confirm"),
+  };
+
+  const id = formData.get("id");
+
+  const { password, confirm } = rawFormData;
+
+  if (!password || !confirm) {
+    return {
+      message: translations.firstLogin.missingFields,
+    };
+  }
+
+  if (!id || typeof id !== "string") {
+    return {
+      message: translations.firstLogin.error,
+    };
+  }
+
+  if (password !== confirm) {
+    return {
+      message: translations.firstLogin.passwordsDontMatch,
+    };
+  }
+
+  const saltedPassword = bcrypt.hashSync(password as string, 10);
+  const updatedUser = await prisma.user.update({
+    where: {
+      id: id,
+    },
+    data: {
+      password: saltedPassword as string,
+      firstLogin: false,
+    },
+  });
+
+  if (!updatedUser) {
+    return {
+      message: translations.firstLogin.error,
+    };
+  }
+
+  redirect("/dashboard");
+}

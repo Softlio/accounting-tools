@@ -6,6 +6,7 @@ import { User } from "@prisma/client";
 import { getServerSession } from "next-auth";
 
 import FadeInAnimation from "@/components/animations/FadeInAnimation";
+import FirstLoginAlert from "@/components/auth/FirstLoginAlert";
 import translations from "@/translations/getTranslation";
 
 
@@ -23,6 +24,7 @@ const DashboardPage = async () => {
           </Title>
         </FadeInAnimation>
         <ToolTabs tools={tools} />
+        {user?.firstLogin && <FirstLoginAlert id={user?.id} />}
       </div>
     </section>
   );

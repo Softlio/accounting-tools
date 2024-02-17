@@ -27,6 +27,7 @@ model User {
   payments      Payment[]
   logEvents     LogEvent[]
   active        Boolean  @default(true)
+  firstLogin    Boolean  @default(true)
 }
 
 model Tool {

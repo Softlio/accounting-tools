@@ -351,4 +351,21 @@ export const translations = {
       "Je hebt geen gereedschap beschikbaar. Neem contact op met de beheerder om toegang te krijgen tot tools. Of ga naar de gereedschapswinkel om gereedschap te kopen.",
     title: "Geen tools beschikbaar",
   },
+  dialog: {
+    firstLogin: {
+      title: "Welkom bij FEM Financial Services Tools",
+      description:
+        "Welkom bij FEM Financial Services. We hopen dat u onze tools nuttig vindt. Als u vragen heeft, neem dan gerust contact met ons op.",
+      newPasswordExplanation:
+        "U moet uw wachtwoord wijzigen voordat u doorgaat.",
+    },
+  },
+  firstLogin: {
+    password: "Wachtwoord",
+    confirmPassword: "Bevestig wachtwoord",
+    save: "Opslaan",
+    missingFields: "Ontbrekende velden",
+    passwordsDontMatch: "Wachtwoorden komen niet overeen",
+    error: "Er is een fout opgetreden",
+  },
 } as const;
