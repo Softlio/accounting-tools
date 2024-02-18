@@ -28,6 +28,8 @@ type YearlyIncomeTaxValues = {
   };
 };
 
+//TODO: Add 2024 values
+
 export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
   "2023": {
     entrepreneur_deduction: 5030,

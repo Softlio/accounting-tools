@@ -28,6 +28,7 @@ model User {
   logEvents     LogEvent[]
   active        Boolean  @default(true)
   firstLogin    Boolean  @default(true)
+  pending       Boolean  @default(true)
 }
 
 model Tool {
@@ -44,8 +45,8 @@ model ToolAccess {
   toolId        String  @db.ObjectId
   userId        String  @db.ObjectId
   access        Boolean @default(false)
-  user          User    @relation(fields: [userId], references: [id])
-  tool          Tool    @relation(fields: [toolId], references: [id])
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tool          Tool    @relation(fields: [toolId], references: [id], onDelete: Cascade)
 }
 
 model Preference {
@@ -67,18 +68,6 @@ model IncomeTaxCalculation {
   paymentId     String  @db.ObjectId @unique
   payment       Payment @relation(fields: [paymentId], references: [id])
   
-  //Values
-  revenue       Float
-  year          Int
-  workedMoreThan1225Hours Boolean
-  eligibleForStarterDeduction Boolean
-  hadSalariedEmployment Boolean
-  annualIncome  Float @default(0)
-  taxWithheld   Float @default(0)
-}
-
-model TempIncomTaxCalculation {
-  id  String  @id @default(auto()) @map("_id") @db.ObjectId
   //Values
   revenue       Float
   year          Int

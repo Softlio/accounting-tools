@@ -1,3 +1,4 @@
+import DeleteUserButton from '@/components/admin/DeleteUserButton'
 import EditInfoForm from '@/components/customer/forms/EditInfoForm'
 import ToolAccessForm from '@/components/customer/forms/ToolAccessForm'
 import Title from '@/components/shared/Title'
@@ -13,7 +14,7 @@ type Props = {
 }
 
 type DataResult = {
-    user: Omit<User, 'password'>
+    user: Omit<User, 'password' | 'pending' | 'active' | 'firstLogin'>
     toolAccess: ToolAccess[],
     tools: Tool[]
 }
@@ -62,6 +63,7 @@ const getData = async (id: string): Promise<DataResult | null> => {
 const UserPage: React.FC<Props> = async ({
     params: { id }
 }) => {
+
     if (!id) {
         return notFound();
     }
@@ -82,6 +84,7 @@ const UserPage: React.FC<Props> = async ({
                 <div className='max-w-xl'>
                     <h2 className='text-3xl font-serif font-bold'>Info</h2>
                     <EditInfoForm {...data.user} />
+
                 </div>
                 <hr className='my-3' />
 
@@ -89,6 +92,8 @@ const UserPage: React.FC<Props> = async ({
                     <h2 className='text-3xl font-serif font-bold'>Tools</h2>
                     <ToolAccessForm {...data} />
                 </div>
+                <hr className='mt-8 mb-6' />
+                <DeleteUserButton id={id} />
             </div>
         </section>
     )

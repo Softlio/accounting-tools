@@ -11,7 +11,7 @@ type Props = {
 
 const TabContainer: React.FC<Props> = ({ value, title, children }) => {
     return (
-        <TabsContent value={value} className="w-full mt-4">
+        <TabsContent value={value} className="w-full mt-4 relative">
             <FadeInAnimation index={2}>
                 <Card className="">
                     <CardHeader>

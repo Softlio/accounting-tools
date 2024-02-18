@@ -43,6 +43,17 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        if (user.pending) {
+          await prisma.user.update({
+            where: {
+              id: user.id,
+            },
+            data: {
+              pending: false,
+            },
+          });
+        }
+
         return {
           id: user.id,
           email: user.email,

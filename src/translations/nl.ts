@@ -97,6 +97,7 @@ export const translations = {
         role: "Rol",
         tools: "Tools",
         edit: "Bewerken",
+        pending: "In afwachting",
       },
     },
     tools: {
@@ -167,6 +168,23 @@ export const translations = {
         },
         submit: "Toevoegen",
       },
+    },
+    invite: {
+      form: {
+        submit: "Uitnodigen",
+      },
+      missingFields: "Ontbrekende velden",
+      success: "Klant succesvol uitgenodigd",
+      error: "Fout bij het uitnodigen van klant",
+      title: "Klant uitnodigen",
+      alreadyExists: "Gebruiker bestaat al",
+    },
+    delete: {
+      error: "Fout bij het verwijderen van klant",
+      success: "Klant succesvol verwijderd",
+      label: "Verwijderen",
+      title: "Klant verwijderen",
+      description: "Weet u zeker dat u deze klant wilt verwijderen?",
     },
   },
   toolAccess: {
@@ -318,6 +336,8 @@ export const translations = {
       goodBye: "Met vriendelijke groet",
       subject: "Bedankt voor uw bestelling bij FEM Financial Services",
     },
+    print: "Opslaan",
+    noRevenueError: "Voer een geldige omzet in",
   },
   orderPages: {
     moreTools: "Bekijk onze andere tools of diensten",
@@ -367,5 +387,15 @@ export const translations = {
     missingFields: "Ontbrekende velden",
     passwordsDontMatch: "Wachtwoorden komen niet overeen",
     error: "Er is een fout opgetreden",
+  },
+  invite: {
+    email: {
+      preview: "U bent uitgenodigd voor FEM Financial Services",
+      thankYou: "Bedankt voor het inschrijven voor FEM Financial Services",
+      description:
+        "U bent uitgenodigd voor FEM Financial Services. Klik op de onderstaande knop om in te loggen en uw account te activeren. Met uw tijdelijke wachtwoord kunt u inloggen en uw wachtwoord wijzigen.",
+      name: "FEM Financial Services",
+      subject: "U bent uitgenodigd voor FEM Financial Services",
+    },
   },
 } as const;

@@ -9,13 +9,14 @@ import NoTools from "./NoTools";
 
 type Props = {
     tools: Tool[];
+    userId: string;
 };
 
-const ToolTabMap: Record<string, React.ReactNode> = {
-    "inkomsten-belasting": <IncomeTax />,
+const ToolTabMap: Record<string, React.FC<{ id: string }>> = {
+    "inkomsten-belasting": IncomeTax,
 };
 
-const ToolTabs: React.FC<Props> = ({ tools }) => {
+const ToolTabs: React.FC<Props> = ({ tools, userId }) => {
     const navigation = useRouter();
     const searchParams = useSearchParams();
     const [selectedTab, setSelectedTab] = useState(
@@ -59,7 +60,7 @@ const ToolTabs: React.FC<Props> = ({ tools }) => {
                 if (!ToolTab) {
                     return null;
                 }
-                return <Fragment key={tool.id}>{ToolTab}</Fragment>;
+                return <Fragment key={tool.id}><ToolTab id={userId} /></Fragment>;
             })}
         </Tabs>
     );

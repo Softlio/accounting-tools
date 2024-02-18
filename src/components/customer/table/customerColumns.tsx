@@ -8,6 +8,7 @@ import { DataTable } from "@/components/ui/data-table";
 import {
     TooltipProvider
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const customerColumns: ColumnDef<User>[] = [
@@ -38,6 +39,21 @@ const customerColumns: ColumnDef<User>[] = [
                 className="bg-gray-200 font-bold dark:bg-gray-800 px-2 py-1 rounded text-xs"
             >
                 {value}
+            </span>
+        },
+    },
+    {
+        accessorKey: "pending",
+        header: translation.admin.customer.table.pending,
+        cell(props) {
+            const value = props.getValue() as string;
+
+            const color = value ? "bg-yellow-200 dark:bg-yellow-800" : "bg-green-200 dark:bg-green-800";
+
+            return <span
+                className={cn("px-2 py-1 rounded text-xs font-bold uppercase", color)}
+            >
+                {value ? translation.global.yes : translation.global.no}
             </span>
         },
     },

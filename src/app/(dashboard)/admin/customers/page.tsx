@@ -1,4 +1,4 @@
-import AddUserForm from "@/components/admin/AddUserForm";
+import InviteUserForm from "@/components/admin/InviteUserForm";
 import { CustomerDataTable } from "@/components/customer/table/customerColumns";
 import Title from "@/components/shared/Title";
 import RefreshButton from "@/components/shared/refreshButton";
@@ -16,8 +16,14 @@ const getData = async (): Promise<User[]> => {
     return users;
 }
 
+const getTools = async () => {
+    const tools = await prisma.tool.findMany();
+    return tools;
+}
+
 const CustomerPage = async () => {
     const data = await getData();
+    const tools = await getTools();
 
     return <section className="min-h-[80vh]">
         <div className="container mx-auto py-16 flex flex-col gap-2">
@@ -26,7 +32,7 @@ const CustomerPage = async () => {
                     {translation.admin.customer.title}
                 </Title>
                 <div className="flex gap-3">
-                    <AddUserForm />
+                    <InviteUserForm tools={tools} />
                     <RefreshButton />
                 </div>
             </div>

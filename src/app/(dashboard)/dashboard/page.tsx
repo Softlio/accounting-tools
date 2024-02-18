@@ -32,7 +32,7 @@ const DashboardPage = async () => {
             {translations.dashboard.welcome.replace("{{name}}", user?.firstName ?? "User")}
           </Title>
         </FadeInAnimation>
-        <ToolTabs tools={tools} />
+        <ToolTabs tools={tools} userId={user?.id ?? "no-id"} />
         {userData?.firstLogin && <FirstLoginAlert id={user?.id} />}
       </div>
     </section>

@@ -12,7 +12,7 @@ import FadeInAnimation from "@/components/animations/FadeInAnimation";
 import translations from "@/translations/getTranslation";
 
 type Props = {
-    user: Omit<User, "password">;
+    user: Omit<User, 'password' | 'pending' | 'active' | 'firstLogin'>;
     tools: Tool[];
     toolAccess: ToolAccess[];
 };
