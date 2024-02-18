@@ -98,6 +98,7 @@ export const translations = {
         tools: "Tools",
         edit: "Bewerken",
         pending: "In afwachting",
+        active: "Actief",
       },
     },
     tools: {

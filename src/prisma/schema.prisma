@@ -108,6 +108,7 @@ enum LogEventType {
   ACCOUNT_UPDATED
   ACCOUNT_DELETED
   TOOL_ACCESS
+  SAVED_PDF
 }
 
 model LogEvent {

@@ -1,4 +1,5 @@
 import { calculateIncomeTax } from "@/lib/calculate-income-tax";
+import { prisma } from "@/lib/prisma";
 import IncomeTaxPdf from "@/pdfs/IncomeTaxPdf";
 import { renderToBuffer } from "@joshuajaco/react-pdf-renderer-bundled";
 import { NextRequest, NextResponse } from "next/server";
@@ -36,6 +37,20 @@ export async function POST(request: NextRequest) {
     />
   );
 
+  await prisma.logEvent.createMany({
+    data: [
+      {
+        type: 'SAVED_PDF',
+        userId: id,
+        data: input,
+      },
+      {
+        type: 'GENERATE_INCOME_TAX_CALCULATION',
+        userId: id,
+        data: input,
+      }
+    ]
+  });
 
   return new NextResponse(buffer, {
     headers: {

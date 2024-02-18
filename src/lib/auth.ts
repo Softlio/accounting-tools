@@ -54,6 +54,16 @@ export const authOptions: NextAuthOptions = {
           });
         }
 
+        await prisma.logEvent.create({
+          data: {
+            userId: user.id,
+            type: "LOGIN",
+            data: {
+              email: user.email,
+            },
+          },
+        });
+
         return {
           id: user.id,
           email: user.email,

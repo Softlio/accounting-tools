@@ -1,18 +1,19 @@
 import InviteUserForm from "@/components/admin/InviteUserForm";
-import { CustomerDataTable } from "@/components/customer/table/customerColumns";
+import { CustomerDataTable, UserWithLogEvents } from "@/components/customer/table/customerColumns";
 import Title from "@/components/shared/Title";
 import RefreshButton from "@/components/shared/refreshButton";
 import { prisma } from "@/lib/prisma";
 import translation from "@/translations/getTranslation";
-import { User } from "@prisma/client";
 
 
-const getData = async (): Promise<User[]> => {
+const getData = async (): Promise<UserWithLogEvents[]> => {
     const users = await prisma.user.findMany({
         include: {
             tools: true,
+            logEvents: true,
         }
     });
+
     return users;
 }
 

@@ -1,6 +1,6 @@
 "use client";
 import translation from "@/translations/getTranslation";
-import { User } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,13 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-const customerColumns: ColumnDef<User>[] = [
+export type UserWithLogEvents = Prisma.UserGetPayload<{
+    include: {
+        logEvents: true;
+    }
+}>;
+
+const customerColumns: ColumnDef<UserWithLogEvents>[] = [
     {
         accessorKey: "firstName",
         header: translation.admin.customer.table.firstName,
@@ -58,6 +64,21 @@ const customerColumns: ColumnDef<User>[] = [
         },
     },
     {
+        accessorKey: "active",
+        header: translation.admin.customer.table.active,
+        cell(props) {
+            const value = props.getValue() as string;
+
+            const color = value ? "bg-green-200 dark:bg-green-800" : "bg-red-200 dark:bg-red-800";
+
+            return <span
+                className={cn("px-2 py-1 rounded text-xs font-bold uppercase", color)}
+            >
+                {value ? translation.global.yes : translation.global.no}
+            </span>
+        },
+    },
+    {
         accessorKey: "tools",
         header: translation.admin.customer.table.tools,
         cell(props) {
@@ -65,6 +86,18 @@ const customerColumns: ColumnDef<User>[] = [
             const filtered = value.filter((v) => v.access);
             return <p>
                 {filtered.length}
+            </p>
+        },
+    },
+    {
+        accessorFn: (row) => {
+            return row.logEvents.filter(e => e.type === 'SAVED_PDF').length;
+        },
+        header: "Downloads",
+        cell(props) {
+            const value = props.getValue() as number;
+            return <p>
+                {value}
             </p>
         },
     },
@@ -82,7 +115,7 @@ const customerColumns: ColumnDef<User>[] = [
     },
 ];
 
-export const CustomerDataTable = ({ data }: { data: User[] }) => (
+export const CustomerDataTable = ({ data }: { data: UserWithLogEvents[] }) => (
     <TooltipProvider>
         <DataTable columns={customerColumns} data={data} />
     </TooltipProvider>
