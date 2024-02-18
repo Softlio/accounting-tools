@@ -21,6 +21,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { IncomeTaxResultValues, calculateIncomeTax } from "@/lib/calculate-income-tax";
+import { availableYears } from "@/tools/IncomeTax/values";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { Input } from "../ui/input";
@@ -53,7 +54,7 @@ interface IncomeTaxState {
 const useIncomeTaxStore = create<IncomeTaxState>()((set, get) => ({
     //Values
     revenue: 0,
-    year: "2023",
+    year: availableYears[0],
     hours_worked: false,
     starter_deduction: false,
     annual_salary: 0,
@@ -210,11 +211,7 @@ const IncomeTaxSection = () => {
                                 name="year"
                                 text={translations.incomeTaxTool.details.form.year}
                                 className="w-[180px]"
-                                options={[
-                                    { label: "2023", value: "2023" },
-                                    { label: "2022", value: "2022" },
-                                    { label: "2021", value: "2021" },
-                                ]}
+                                options={availableYears.map((year) => ({ value: year, label: year }))}
                                 value={store.year}
                                 onChange={store.setYear}
                             />
