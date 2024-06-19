@@ -1,4 +1,5 @@
 import { calculateIncomeTax } from "@/lib/calculate-income-tax";
+import { Logger } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 import IncomeTaxPdf from "@/pdfs/IncomeTaxPdf";
 import { renderToBuffer } from "@joshuajaco/react-pdf-renderer-bundled";
@@ -11,6 +12,7 @@ export async function GET(request: NextRequest, { params: { id } }: {
 }) {
 
   if (!id) {
+    Logger.error("downloadIncomeTax", "No id provided");
     return new NextResponse("No id provided", { status: 400 });
   }
 
@@ -25,12 +27,14 @@ export async function GET(request: NextRequest, { params: { id } }: {
     });
 
     if (!incomeTaxCalculation) {
+      Logger.error("downloadIncomeTax", "No income tax calculation found");
       return new NextResponse("No income tax calculation found", {
         status: 404,
       });
     }
 
     if (incomeTaxCalculation.payment.status !== "paid") {
+      Logger.error("downloadIncomeTax", "Payment not paid");
       return new NextResponse("No payment found", { status: 404 });
     }
     const input = {
@@ -56,8 +60,7 @@ export async function GET(request: NextRequest, { params: { id } }: {
       },
     });
   } catch (error) {
-    console.error("Error while generating income tax pdf");
-    console.log(error)
+    Logger.error("downloadIncomeTax", "Error while generating income tax pdf: " + JSON.stringify(error));
     return new NextResponse("Internal server error", { status: 500 });
   }
 }

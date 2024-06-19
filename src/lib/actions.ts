@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { transporter } from "./email";
 import { getInviteEmail } from "./getInviteEmail";
+import { Logger } from "./logger";
 import { generateRandomPassword } from "./utils";
 
 export async function createUser(prevState: any, formData: FormData) {
@@ -153,7 +154,7 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
       },
     });
 
-    tools.forEach(async (tool) => {
+    for (const tool of tools) {
       await prisma.toolAccess.create({
         data: {
           user: {
@@ -169,7 +170,7 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
           access: true,
         },
       });
-    });
+    }
 
     try {
       console.log("Invited user with temp password ", tempPassword);
@@ -185,7 +186,12 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
         html: emailToSend,
       });
     } catch (error) {
-      console.error("Error sending email: ", error);
+      Logger.error(
+        "inviteUser",
+        "Error sending email: " + JSON.stringify(error)
+      );
+      console.log("Error sending email: ", email);
+
       return {
         message: translations.customer.invite.error,
         success: false,
@@ -198,7 +204,7 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
       success: true,
     };
   } catch (error) {
-    console.error("Error inviting user: ", error);
+    Logger.error("inviteUser", "Error inviting user: " + JSON.stringify(error));
     return {
       message: translations.customer.invite.error,
       success: false,
@@ -210,6 +216,7 @@ export const deleteUser = async (prevState: any, formData: FormData) => {
   const id = formData.get("id");
 
   if (!id) {
+    Logger.error("deleteUser", "No ID provided");
     return {
       message: translations.customer.delete.error,
       success: false,
@@ -223,6 +230,7 @@ export const deleteUser = async (prevState: any, formData: FormData) => {
   });
 
   if (!user) {
+    Logger.error("deleteUser", "Error deleting user: " + JSON.stringify(user));
     return {
       message: translations.customer.delete.error,
       success: false,

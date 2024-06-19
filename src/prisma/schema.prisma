@@ -119,3 +119,16 @@ model LogEvent {
   data          Json?
   createdAt     DateTime @default(now())
 }
+
+enum LogType {
+  INFO
+  WARNING
+  ERROR
+}
+
+model Logs {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  log          String
+  createdAt    DateTime @default(now())
+  type         LogType
+}

@@ -1,3 +1,4 @@
+import { Logger } from "@/lib/logger";
 import { mollieClient } from "@/lib/mollie";
 import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
@@ -9,6 +10,7 @@ export async function POST(request: NextRequest) {
   const id = formData.get("id");
 
   if (id === null) {
+    Logger.error("paymentWebhook", "Missing id");
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.missingFields }),
       {
@@ -20,6 +22,7 @@ export async function POST(request: NextRequest) {
   const payment = await mollieClient.payments.get(id.toString());
 
   if (!payment) {
+    Logger.error("paymentWebhook", "Payment not found");
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.errorCreatingOrder }),
       {
@@ -44,7 +47,10 @@ export async function POST(request: NextRequest) {
       status: 200,
     });
   } catch (error) {
-    console.log(error);
+    Logger.error(
+      "paymentWebhook",
+      "Error updating payment: " + JSON.stringify(error)
+    );
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.errorCreatingOrder }),
       {

@@ -1,4 +1,5 @@
 import { authOptions } from "@/lib/auth";
+import { Logger } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
 import { User } from "@prisma/client";
@@ -10,6 +11,7 @@ export async function POST(request: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (!session) {
+    Logger.error("updateUser", "Unauthorized " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.unauthorized }),
       {
@@ -20,6 +22,7 @@ export async function POST(request: NextRequest) {
 
   const u = session.user as User | undefined;
   if (u?.role !== "ADMIN") {
+    Logger.error("updateUser", "Unauthorized " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.unauthorized }),
       {
@@ -29,6 +32,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (!email || !firstName || !lastName || !role) {
+    Logger.error("updateUser", "Missing fields");
     return new NextResponse(
       JSON.stringify({ error: translations.register.missingFields }),
       {
@@ -44,6 +48,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (!user) {
+    Logger.error("updateUser", "User not found " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.doesntExist }),
       {
@@ -53,6 +58,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (!(u.role === "ADMIN" || u.id === user.id)) {
+    Logger.error("updateUser", "Unauthorized " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.doesntExist }),
       {

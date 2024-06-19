@@ -1,3 +1,4 @@
+import { Logger } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
 import bcrypt from "bcrypt";
@@ -7,6 +8,7 @@ export async function POST(request: NextRequest) {
   const { email, password, firstName, lastName, role } = await request.json();
 
   if (!email || !password || !firstName || !lastName) {
+    Logger.error("register", "Missing fields");
     return new NextResponse(
       JSON.stringify({ error: translations.register.missingFields }),
       {
@@ -22,6 +24,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (user) {
+    Logger.error("register", "User already exists " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.alreadyExists }),
       {
@@ -41,6 +44,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (!newUser) {
+    Logger.error("register", "Error creating user " + JSON.stringify(email));
     return new NextResponse(
       JSON.stringify({ error: translations.register.alreadyExists }),
       {

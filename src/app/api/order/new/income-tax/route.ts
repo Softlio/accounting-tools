@@ -1,4 +1,5 @@
 import { transporter } from "@/lib/email";
+import { Logger } from "@/lib/logger";
 import { mollieClient } from "@/lib/mollie";
 import { prisma } from "@/lib/prisma";
 import { getIncomeTaxEmail } from "@/tools/IncomeTax/getIncomeTaxEmail";
@@ -19,6 +20,7 @@ export async function POST(request: NextRequest) {
   } = await request.json();
 
   if (!revenue || !year || !email) {
+    Logger.error("newIncomeTaxOrder", "Missing fields");
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.missingFields }),
       {
@@ -42,6 +44,7 @@ export async function POST(request: NextRequest) {
   };
 
   if (!price) {
+    Logger.error("newIncomeTaxOrder", "Price not found");
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.errorCreatingOrder }),
       {
@@ -99,6 +102,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (!payment._links.checkout?.href) {
+      Logger.error("newIncomeTaxOrder", "Checkout URL not found");
       return new NextResponse(
         JSON.stringify({ error: translations.newOrder.errorCreatingOrder }),
         {
@@ -125,7 +129,10 @@ export async function POST(request: NextRequest) {
       }
     );
   } catch (error) {
-    console.log(error);
+    Logger.error(
+      "newIncomeTaxOrder",
+      "Error creating order: " + JSON.stringify(error) + "user" + name
+    );
     return new NextResponse(
       JSON.stringify({ error: translations.newOrder.errorCreatingOrder }),
       {

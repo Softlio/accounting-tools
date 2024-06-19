@@ -1,4 +1,5 @@
 import { calculateIncomeTax } from "@/lib/calculate-income-tax";
+import { Logger } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 import IncomeTaxPdf from "@/pdfs/IncomeTaxPdf";
 import { renderToBuffer } from "@joshuajaco/react-pdf-renderer-bundled";
@@ -28,29 +29,38 @@ export async function POST(request: NextRequest) {
 
   const result = calculateIncomeTax(input);
 
-  const buffer = await renderToBuffer(
-    <IncomeTaxPdf
-      values={result}
-      input={input}
-      id={id}
-      createdAt={new Date()}
-    />
-  );
+  let buffer;
+  try {
+    buffer = await renderToBuffer(
+      <IncomeTaxPdf
+        values={result}
+        input={input}
+        id={id}
+        createdAt={new Date()}
+      />
+    );
+  } catch (error) {
+    Logger.error("saveIncomeTax", "Error rendering PDF: " + JSON.stringify(error));
+  }
 
-  await prisma.logEvent.createMany({
-    data: [
-      {
-        type: 'SAVED_PDF',
-        userId: id,
-        data: input,
-      },
-      {
-        type: 'GENERATE_INCOME_TAX_CALCULATION',
-        userId: id,
-        data: input,
-      }
-    ]
-  });
+  try {
+    await prisma.logEvent.createMany({
+      data: [
+        {
+          type: 'SAVED_PDF',
+          userId: id,
+          data: input,
+        },
+        {
+          type: 'GENERATE_INCOME_TAX_CALCULATION',
+          userId: id,
+          data: input,
+        }
+      ]
+    });
+  } catch (error) {
+    Logger.error("saveIncomeTax", "Error saving log event: " + JSON.stringify(error));
+  }
 
   return new NextResponse(buffer, {
     headers: {
