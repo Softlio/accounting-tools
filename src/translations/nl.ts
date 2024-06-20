@@ -99,6 +99,7 @@ export const translations = {
         edit: "Bewerken",
         pending: "In afwachting",
         active: "Actief",
+        actions: "Acties",
       },
     },
     tools: {
@@ -179,6 +180,16 @@ export const translations = {
       error: "Fout bij het uitnodigen van klant",
       title: "Klant uitnodigen",
       alreadyExists: "Gebruiker bestaat al",
+      doesNotExist: "Gebruiker bestaat niet",
+    },
+    reInvite: {
+      form: {
+        title: "Gebruiker opnieuw uitnodigen",
+        description: "Wachtwoord resetten en opnieuw uitnodigen",
+        submit: "Opnieuw uitnodigen",
+      },
+      success: "Gebruiker opnieuw uitgenodigd",
+      error: "Fout bij het opnieuw uitnodigen van gebruiker",
     },
     delete: {
       error: "Fout bij het verwijderen van klant",
@@ -397,6 +408,16 @@ export const translations = {
         "U bent uitgenodigd voor FEM Financial Services. Klik op de onderstaande knop om in te loggen en uw account te activeren. Met uw tijdelijke wachtwoord kunt u inloggen en uw wachtwoord wijzigen.",
       name: "FEM Financial Services",
       subject: "U bent uitgenodigd voor FEM Financial Services",
+    },
+  },
+  reInvite: {
+    email: {
+      preview: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
+      thankYou: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
+      description:
+        "Hier is uw nieuwe wachtwoord voor FEM Financial Services. Klik op de onderstaande knop om in te loggen",
+      name: "FEM Financial Services",
+      subject: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
     },
   },
 } as const;

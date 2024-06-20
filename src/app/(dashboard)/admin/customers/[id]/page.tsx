@@ -1,5 +1,6 @@
 import DeleteUserButton from '@/components/admin/DeleteUserButton'
 import EditInfoForm from '@/components/customer/forms/EditInfoForm'
+import ReInviteUser from '@/components/customer/forms/ReInviteUser'
 import ToolAccessForm from '@/components/customer/forms/ToolAccessForm'
 import Title from '@/components/shared/Title'
 import { prisma } from '@/lib/prisma'
@@ -75,21 +76,26 @@ const UserPage: React.FC<Props> = async ({
 
     return (
         <section className="min-h-[80vh]">
-            <div className='container mx-auto flex flex-col py-12 mb-12'>
+            <div className='container flex flex-col py-12 mx-auto mb-12'>
                 <Title className='text-4xl md:text-5xl'>
                     {data.user.firstName} {data.user.lastName}
                 </Title>
                 <hr className='my-3' />
 
                 <div className='max-w-xl'>
-                    <h2 className='text-3xl font-serif font-bold'>Info</h2>
+                    <h2 className='font-serif text-3xl font-bold'>Info</h2>
                     <EditInfoForm {...data.user} />
 
                 </div>
+                <div className='max-w-xl'>
+                    <ReInviteUser {...data.user} />
+                </div>
+
+
                 <hr className='my-3' />
 
                 <div className='max-w-xl'>
-                    <h2 className='text-3xl font-serif font-bold'>Tools</h2>
+                    <h2 className='font-serif text-3xl font-bold'>Tools</h2>
                     <ToolAccessForm {...data} />
                 </div>
                 <hr className='mt-8 mb-6' />

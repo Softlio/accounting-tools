@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { transporter } from "./email";
 import { getInviteEmail } from "./getInviteEmail";
+import { getReInviteEmail } from "./getReInviteEmail";
 import { Logger } from "./logger";
 import { generateRandomPassword } from "./utils";
 
@@ -173,7 +174,11 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
     }
 
     try {
-      console.log("Invited user with temp password ", tempPassword);
+      console.log("Invited user with temp password ", email, tempPassword);
+      Logger.info(
+        "invite",
+        "Invited user with temp password " + email + " " + tempPassword
+      );
       const emailToSend = getInviteEmail({
         name: firstName as string,
         password: tempPassword,
@@ -205,6 +210,95 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
     };
   } catch (error) {
     Logger.error("inviteUser", "Error inviting user: " + JSON.stringify(error));
+    return {
+      message: translations.customer.invite.error,
+      success: false,
+    };
+  }
+};
+
+export const reInviteUser = async (prevState: any, formData: FormData) => {
+  const rawFormData = {
+    email: formData.get("email"),
+  };
+
+  const { email } = rawFormData;
+
+  if (!email) {
+    return {
+      message: translations.customer.invite.missingFields,
+      success: false,
+    };
+  }
+
+  const tempPassword = generateRandomPassword(20);
+
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      email: email as string,
+    },
+  });
+
+  if (!existingUser) {
+    return {
+      message: translations.customer.invite.doesNotExist,
+      success: false,
+    };
+  }
+
+  try {
+    const saltedPassword = bcrypt.hashSync(tempPassword as string, 10);
+    const user = await prisma.user.update({
+      where: {
+        email: email as string,
+      },
+      data: {
+        password: saltedPassword,
+        pending: true,
+        firstLogin: true,
+      },
+    });
+
+    try {
+      console.log("Re-Invited user with temp password", email, tempPassword);
+      Logger.info(
+        "reinvite",
+        "Re-Invited user with temp password " + email + " " + tempPassword
+      );
+      const emailToSend = getReInviteEmail({
+        name: user.firstName as string,
+        password: tempPassword,
+      });
+
+      transporter.sendMail({
+        from: process.env.SMTP_FROM,
+        to: email as string,
+        subject: translations.invite.email.subject,
+        html: emailToSend,
+      });
+    } catch (error) {
+      Logger.error(
+        "reinviteUser",
+        "Error sending email: " + JSON.stringify(error)
+      );
+      console.log("Error sending email: ", email);
+
+      return {
+        message: translations.customer.invite.error,
+        success: false,
+      };
+    }
+
+    revalidatePath("/admin/customers");
+    return {
+      message: translations.customer.invite.success,
+      success: true,
+    };
+  } catch (error) {
+    Logger.error(
+      "reinviteUser",
+      "Error inviting user: " + JSON.stringify(error)
+    );
     return {
       message: translations.customer.invite.error,
       success: false,

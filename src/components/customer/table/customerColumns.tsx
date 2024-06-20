@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import ReInviteUserButton from "./reinviteUserButton";
 
 export type UserWithLogEvents = Prisma.UserGetPayload<{
     include: {
@@ -42,7 +43,7 @@ const customerColumns: ColumnDef<UserWithLogEvents>[] = [
         cell(props) {
             const value = props.getValue() as string;
             return <span
-                className="bg-gray-200 font-bold dark:bg-gray-800 px-2 py-1 rounded text-xs"
+                className="px-2 py-1 text-xs font-bold bg-gray-200 rounded dark:bg-gray-800"
             >
                 {value}
             </span>
@@ -113,6 +114,14 @@ const customerColumns: ColumnDef<UserWithLogEvents>[] = [
             </Link>
         },
     },
+    {
+        accessorKey: "email",
+        header: translation.admin.customer.table.actions,
+        cell(props) {
+            const value = props.getValue() as string;
+            return <ReInviteUserButton email={value} id={props.row.id} />
+        }
+    }
 ];
 
 export const CustomerDataTable = ({ data }: { data: UserWithLogEvents[] }) => (
