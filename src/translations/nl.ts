@@ -221,9 +221,9 @@ export const translations = {
       title: "Details",
       form: {
         revenue: {
-          label: "Omzet",
-          placeholder: "Voer uw omzet in",
-          description: "Uw totale omzet",
+          label: "Winst",
+          placeholder: "Voer uw winst in",
+          description: "Uw totale winst",
         },
         year: {
           label: "Jaar",
@@ -287,7 +287,7 @@ export const translations = {
       description: "Bereken nu je inkomstenbelasting",
       error: "Er is iets misgegaan bij de berekening. Probeer het opnieuw.",
       error_revenue:
-        "Voer een geldige omzet in, de omzet moet boven 0 en onder 1.000.000.000 liggen.",
+        "Voer een geldige winst in, de winst moet boven 0 en onder 1.000.000.000 liggen.",
       error_email: "Voer een geldig e-mailadres in",
       item_description:
         "Betaal €10,00 om je inkomstenbelasting te berekenen en de resultaten te downloaden. In een mooi PDF-formaat met alle details en informatie.",
@@ -300,7 +300,7 @@ export const translations = {
           "Resultaten van de inkomstenbelastingberekening. Ga naar de volgende pagina voor meer details.",
         details: {
           title: "Details",
-          revenue: "Omzet",
+          revenue: "Winst",
           year: "Jaar",
           hours_worked: "Gewerkte uren",
           starter_deduction: "Startersaftrek",
@@ -349,7 +349,7 @@ export const translations = {
       subject: "Bedankt voor uw bestelling bij FEM Financial Services",
     },
     print: "Opslaan",
-    noRevenueError: "Voer een geldige omzet in",
+    noRevenueError: "Voer een geldige winst in",
   },
   orderPages: {
     moreTools: "Bekijk onze andere tools of diensten",
