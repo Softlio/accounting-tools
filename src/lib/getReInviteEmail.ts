@@ -13,9 +13,7 @@ export const getReInviteEmail = ({
             <html dir="ltr" lang="en">
 
             <head></head>
-            <div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">${
-              translations.reInvite.email.preview
-            }<div> ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿</div>
+            <div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">${translations.reInvite.email.preview}<div> ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿</div>
             </div>
 
             <body style="background-color:rgb(255,255,255);margin-top:auto;margin-bottom:auto;margin-left:auto;margin-right:auto;font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;">
@@ -27,9 +25,7 @@ export const getReInviteEmail = ({
                         <tbody>
                             <tr>
                             <td>
-                                <a href="${
-                                  process.env.NEXT_PUBLIC_BASE_URL
-                                }" style="color:#067df7;text-decoration:none" target="_blank">
+                                <a style="color:#067df7;text-decoration:none" target="_blank">
                                     <svg width="278" height="84" viewBox="0 0 278 84" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M142.52 57.87C141.11 57.9 139.87 57.32 138.82 56.34C137.2 54.82 135.62 53.26 134.01 51.73C130.74 48.59 127.46 45.45 124.18 42.32C122.34 40.56 120.49 38.8 118.65 37.03C117.48 35.92 116.3 34.82 115.16 33.68C112.91 31.46 112.81 28.38 114.93 26.05C116.54 24.29 118.21 22.58 119.86 20.86C123.12 17.45 126.39 14.05 129.65 10.65C131.32 8.91 132.98 7.16 134.64 5.41C135.64 4.36 136.61 3.28999 137.64 2.26999C139.38 0.549995 141.42 0.0999981 143.72 0.999998C144.4 1.26 144.97 1.7 145.49 2.2C147.17 3.81 148.85 5.43 150.53 7.04C153.69 10.06 156.85 13.08 160.01 16.1C162.35 18.34 164.7 20.57 167.05 22.81C167.82 23.54 168.61 24.25 169.33 25.03C171.3 27.14 171.29 30.29 169.31 32.42C168 33.84 166.65 35.22 165.31 36.61C162.03 40.03 158.74 43.45 155.46 46.88C153.69 48.73 151.92 50.59 150.14 52.44C148.93 53.71 147.72 54.97 146.51 56.24C145.44 57.36 144.12 57.88 142.51 57.88L142.52 57.87ZM169.29 28.69C169.34 27.45 168.77 26.48 167.9 25.65C166.51 24.31 165.1 22.99 163.7 21.66C161.9 19.95 160.11 18.23 158.31 16.52C155.11 13.46 151.91 10.4 148.71 7.33999C147.26 5.95999 145.83 4.57 144.37 3.2C142.66 1.59 140.42 1.62999 138.74 3.26999C138.37 3.63999 138 4.01 137.64 4.39C134.64 7.53 131.64 10.67 128.63 13.81C127.8 14.68 127.84 14.55 128.64 15.32C131.76 18.31 134.88 21.29 137.99 24.28C139.2 25.43 140.4 26.59 141.61 27.73C142 28.1 142.13 28.08 142.51 27.7C143.1 27.1 143.67 26.48 144.26 25.88C146.46 23.59 148.65 21.3 150.85 19.01C151.67 18.15 152.5 17.3 153.33 16.46C153.65 16.14 153.99 16.11 154.29 16.36C154.62 16.63 154.67 16.95 154.43 17.35C154.36 17.47 154.27 17.58 154.18 17.67C152.81 19.11 151.45 20.55 150.08 21.99C148.29 23.87 146.5 25.74 144.71 27.61C141.48 30.99 138.24 34.36 135 37.73C133 39.82 131 41.92 129 44.02C128.84 44.19 128.6 44.37 128.58 44.56C128.56 44.75 128.91 44.8 129.06 44.95C129.09 44.98 129.12 45.01 129.15 45.04C131.41 47.2 133.68 49.37 135.94 51.53C137.27 52.8 138.57 54.09 139.93 55.32C140.88 56.18 141.99 56.63 143.31 56.38C144.3 56.19 145.08 55.66 145.77 54.94C148.14 52.46 150.52 49.98 152.89 47.5C153.9 46.44 154.91 45.38 155.91 44.32C156.23 43.98 156.21 43.69 155.89 43.39C155.16 42.7 154.43 42.01 153.7 41.31C151.56 39.26 149.41 37.21 147.28 35.16C146.38 34.3 145.49 33.44 144.61 32.57C144.3 32.26 144.29 31.95 144.55 31.65C144.82 31.33 145.16 31.28 145.51 31.51C145.65 31.6 145.78 31.7 145.9 31.82C148.31 34.12 150.73 36.43 153.14 38.74C154.39 39.93 155.62 41.13 156.88 42.31C157.38 42.78 157.43 42.76 157.91 42.26C159.65 40.43 161.4 38.61 163.14 36.79C164.77 35.09 166.41 33.39 168.04 31.69C168.83 30.86 169.34 29.91 169.31 28.72L169.29 28.69ZM114.94 29.65C114.93 30.64 115.21 31.47 115.79 32.2C116.29 32.83 116.91 33.34 117.48 33.9C120.51 36.8 123.53 39.7 126.56 42.6C127.44 43.44 127.5 43.44 128.32 42.58C130.8 39.99 133.28 37.4 135.76 34.81C137.36 33.14 138.97 31.47 140.58 29.8C141.06 29.3 141.06 29.23 140.58 28.77C139.26 27.5 137.94 26.23 136.61 24.96C133.54 22.03 130.47 19.09 127.4 16.16C126.93 15.71 126.81 15.71 126.36 16.19C125.09 17.53 123.83 18.88 122.56 20.22C120.41 22.47 118.24 24.72 116.09 26.97C115.36 27.73 114.9 28.63 114.95 29.66L114.94 29.65Z" fill="#D6AD60"/>
                                         <path d="M136.88 19.2C136.85 18.91 137.02 18.7 137.22 18.49C138.15 17.53 139.08 16.57 140.01 15.6C140.96 14.61 140.75 14.78 139.99 14.05C139 13.09 138 12.15 137 11.19C136.78 10.98 136.58 10.74 136.66 10.39C136.8 9.81 137.4 9.61 137.86 10C138.32 10.4 138.75 10.82 139.19 11.24C139.88 11.9 140.56 12.56 141.24 13.22C141.65 13.62 141.84 13.62 142.24 13.22C143.27 12.16 144.29 11.1 145.32 10.04C145.4 9.96 145.47 9.88 145.56 9.81C145.87 9.57 146.23 9.58 146.5 9.83C146.79 10.09 146.85 10.43 146.57 10.75C146.02 11.4 145.43 12.02 144.84 12.64C144.32 13.19 143.79 13.73 143.27 14.28C142.93 14.63 142.92 14.82 143.27 15.15C144.2 16.05 145.14 16.94 146.08 17.83C146.34 18.08 146.6 18.33 146.79 18.63C146.97 18.91 146.98 19.2 146.74 19.46C146.49 19.73 146.2 19.79 145.89 19.58C145.3 19.19 144.83 18.66 144.32 18.18C143.65 17.55 142.99 16.9 142.31 16.27C141.89 15.88 141.74 15.88 141.35 16.29C140.33 17.34 139.33 18.4 138.31 19.45C138.19 19.58 138.05 19.7 137.89 19.78C137.4 20.05 136.89 19.75 136.88 19.17V19.2Z" fill="#D6AD60"/>
@@ -64,29 +60,17 @@ export const getReInviteEmail = ({
                             </tr>
                         </tbody>
                         </table>
-                        <h1 style="color:rgb(0,0,0);font-size:24px;font-weight:400;text-align:center;padding:0px;margin-top:30px;margin-bottom:30px;margin-left:0px;margin-right:0px">${
-                          translations.reInvite.email.thankYou
-                        } <strong style="color:rgb(214,173,96)">${
-    translations.reInvite.email.name
-  }</strong></h1>
+                        <h1 style="color:rgb(0,0,0);font-size:24px;font-weight:400;text-align:center;padding:0px;margin-top:30px;margin-bottom:30px;margin-left:0px;margin-right:0px">${translations.reInvite.email.thankYou} <strong style="color:rgb(214,173,96)">${translations.reInvite.email.name}</strong></h1>
                         <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">Hallo ${name},</p>
-                        <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">${
-                          translations.reInvite.email.description
-                        }</p>
+                        <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">${translations.reInvite.email.description}</p>
                       	<p style="font-size:18px;line-height:24px;margin:16px 12px;color:rgb(0,0,0);background-color:#E8E8E7;padding:14px;border-radius:5px;text-align:center;font-weight:600;">
                           ${password}
                       </p>
-                        <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">${
-                          translations.incomeTaxTool.email.goodBye
-                        }, <br />${
-    translations.incomeTaxTool.email.name
-  } Team</p>
+                        <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">${translations.incomeTaxTool.email.goodBye}, <br />${translations.incomeTaxTool.email.name} Team</p>
                         <table align="center" width="100%" border="0" cellPadding="0" cellSpacing="0" role="presentation" style="margin-bottom:1rem;margin-top:1rem">
                         <tbody>
                             <tr>
-                            <td><a href="${
-                              process.env.NEXT_PUBLIC_BASE_URL + "/login"
-                            }" style="color:rgb(255,255,255);text-decoration:none;padding-top:1rem;padding-bottom:1rem;padding-left:2.5rem;padding-right:2.5rem;margin-top:1rem;display:block;margin-left:auto;margin-right:auto;text-align:center;width:min-content;background-color:rgb(31,66,48);font-weight:700;cursor:pointer" target="_blank">Inloggen</a></td>
+                            <td><a style="color:rgb(255,255,255);text-decoration:none;padding-top:1rem;padding-bottom:1rem;padding-left:2.5rem;padding-right:2.5rem;margin-top:1rem;display:block;margin-left:auto;margin-right:auto;text-align:center;width:min-content;background-color:rgb(31,66,48);font-weight:700;cursor:pointer" target="_blank">Inloggen</a></td>
                             </tr>
                         </tbody>
                         </table>
