@@ -405,7 +405,7 @@ export const translations = {
       preview: "U bent uitgenodigd voor FEM Financial Services",
       thankYou: "Bedankt voor het inschrijven voor FEM Financial Services",
       description:
-        "U bent uitgenodigd voor FEM Financial Services. Klik op de onderstaande knop om in te loggen en uw account te activeren. Met uw tijdelijke wachtwoord kunt u inloggen en uw wachtwoord wijzigen.",
+        "U bent uitgenodigd voor FEM Financial Services. Ga naar <a href='https://tools.femfinancialservices.nl/'>https://tools.femfinancialservices.nl/</a> om in te loggen en uw account te activeren. Met uw tijdelijke wachtwoord kunt u inloggen en uw wachtwoord wijzigen.",
       name: "FEM Financial Services",
       subject: "U bent uitgenodigd voor FEM Financial Services",
     },
@@ -415,7 +415,7 @@ export const translations = {
       preview: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
       thankYou: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
       description:
-        "Hier is uw nieuwe wachtwoord voor FEM Financial Services. Klik op de onderstaande knop om in te loggen",
+        "Hier is uw nieuwe wachtwoord voor FEM Financial Services. Ga naar <a href='https://tools.femfinancialservices.nl/'>https://tools.femfinancialservices.nl/</a> om in te loggen",
       name: "FEM Financial Services",
       subject: "Hier is uw nieuwe wachtwoord voor FEM Financial Services",
     },

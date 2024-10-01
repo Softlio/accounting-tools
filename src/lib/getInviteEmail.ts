@@ -67,13 +67,6 @@ export const getInviteEmail = ({
                           ${password}
                       </p>
                         <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">${translations.incomeTaxTool.email.goodBye}, <br />${translations.incomeTaxTool.email.name} Team</p>
-                        <table align="center" width="100%" border="0" cellPadding="0" cellSpacing="0" role="presentation" style="margin-bottom:1rem;margin-top:1rem">
-                        <tbody>
-                            <tr>
-                            <td><a style="color:rgb(255,255,255);text-decoration:none;padding-top:1rem;padding-bottom:1rem;padding-left:2.5rem;padding-right:2.5rem;margin-top:1rem;display:block;margin-left:auto;margin-right:auto;text-align:center;width:min-content;background-color:rgb(31,66,48);font-weight:700;cursor:pointer" target="_blank">Inloggen</a></td>
-                            </tr>
-                        </tbody>
-                        </table>
                         <hr style="width:100%;border:none;border-top:1px solid #eaeaea;border-color:rgb(234,234,234);border-style:solid;border-width:1px" />
                     </td>
                     </tr>
