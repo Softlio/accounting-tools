@@ -184,12 +184,14 @@ export const inviteUser = async (prevState: any, formData: FormData) => {
         password: tempPassword,
       });
 
-      transporter.sendMail({
+      const result = transporter.sendMail({
         from: process.env.SMTP_FROM,
         to: email as string,
         subject: translations.invite.email.subject,
         html: emailToSend,
       });
+
+      Logger.info("invite", "Email sent: " + JSON.stringify(result));
     } catch (error) {
       Logger.error(
         "inviteUser",
