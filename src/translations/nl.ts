@@ -24,6 +24,7 @@ export const translations = {
     agreement: "Door verder te gaan, gaat u akkoord met onze",
     form: {
       email: "E-mail",
+      emailError: "Ongeldige inloggegevens",
       emailPlaceholder: "Voer uw e-mailadres in",
       emailDescription:
         "Het e-mailadres dat u heeft gebruikt om te registreren",

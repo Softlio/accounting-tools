@@ -1,3 +1,4 @@
+import { Logger } from "@/lib/logger";
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { type NextAuthOptions } from "next-auth";
@@ -21,6 +22,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          Logger.error("NextAuthOptions", `Email or password missing`);
           return null;
         }
 
@@ -31,6 +33,10 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (!user) {
+          Logger.error(
+            "NextAuthOptions",
+            `User not found: ${credentials.email}`
+          );
           return null;
         }
 
@@ -40,29 +46,51 @@ export const authOptions: NextAuthOptions = {
         );
 
         if (!passwordMatch) {
+          Logger.error(
+            "NextAuthOptions",
+            `Password does not match for user: ${credentials.email}`
+          );
           return null;
         }
 
         if (user.pending) {
-          await prisma.user.update({
-            where: {
-              id: user.id,
-            },
-            data: {
-              pending: false,
-            },
-          });
+          Logger.error("NextAuthOptions", `User pending: ${credentials.email}`);
+          try {
+            await prisma.user.update({
+              where: {
+                id: user.id,
+              },
+              data: {
+                pending: false,
+              },
+            });
+          } catch (error) {
+            Logger.error(
+              "NextAuthOptions",
+              `Error updating user pending status: ${credentials.email}`
+            );
+            return null;
+          }
         }
 
-        await prisma.logEvent.create({
-          data: {
-            userId: user.id,
-            type: "LOGIN",
+        Logger.info("NextAuthOptions", `User logged in: ${credentials.email}`);
+        try {
+          await prisma.logEvent.create({
             data: {
-              email: user.email,
+              userId: user.id,
+              type: "LOGIN",
+              data: {
+                email: user.email,
+              },
             },
-          },
-        });
+          });
+        } catch (error) {
+          Logger.error(
+            "NextAuthOptions",
+            `Error logging event: ${credentials.email}`
+          );
+          return null;
+        }
 
         return {
           id: user.id,
