@@ -10,7 +10,6 @@ import FirstLoginAlert from "@/components/auth/FirstLoginAlert";
 import { prisma } from "@/lib/prisma";
 import translations from "@/translations/getTranslation";
 
-
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions);
   const user = session?.user as User | undefined;
@@ -21,15 +20,18 @@ const DashboardPage = async () => {
     },
     select: {
       firstLogin: true,
-    }
+    },
   });
 
   return (
     <section className="min-h-[80vh]">
-      <div className=" container mx-auto py-16 flex flex-col gap-6">
+      <div className=" mx-2  md:container md:mx-auto py-16 flex flex-col gap-6">
         <FadeInAnimation>
           <Title>
-            {translations.dashboard.welcome.replace("{{name}}", user?.firstName ?? "User")}
+            {translations.dashboard.welcome.replace(
+              "{{name}}",
+              user?.firstName ?? "User"
+            )}
           </Title>
         </FadeInAnimation>
         <ToolTabs tools={tools} userId={user?.id ?? "no-id"} />
