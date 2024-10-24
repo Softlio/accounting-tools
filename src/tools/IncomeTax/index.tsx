@@ -5,6 +5,7 @@ import { CheckBoxInput } from "@/components/tools/CheckboxInput";
 import { NumberInput } from "@/components/tools/NumberInput";
 import { ResultRow } from "@/components/tools/ResultRow";
 import { SelectInput } from "@/components/tools/SelectInput";
+import ToolResultDivider from "@/components/tools/ToolResultDivider";
 import { calculateIncomeTax } from "@/lib/calculate-income-tax";
 import translations from "@/translations/getTranslation";
 import { PrinterIcon } from "lucide-react";
@@ -277,6 +278,7 @@ const IncomeTax: React.FC<{
               label={translations.incomeTaxTool.result.business_income}
               value={store.results.business_income}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.entrepreneur_deduction}
               value={store.results.entrepreneur_deduction}
@@ -287,6 +289,7 @@ const IncomeTax: React.FC<{
                   translations.incomeTaxTool.info.entrepreneur_deduction,
               }}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.profit_exemption}
               value={store.results.profit_exemption}
@@ -296,14 +299,17 @@ const IncomeTax: React.FC<{
                 description: translations.incomeTaxTool.info.mkb_deduction,
               }}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.wage}
               value={store.results.wage}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.taxable_income}
               value={store.results.taxable_income}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.income_tax}
               value={store.results.income_tax}
@@ -312,6 +318,7 @@ const IncomeTax: React.FC<{
                 description: translations.incomeTaxTool.info.income_tax,
               }}
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.general_tax_credit}
               value={store.results.general_tax_credit}
@@ -321,6 +328,7 @@ const IncomeTax: React.FC<{
               }}
               negative
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.labor_discount}
               value={store.results.labor_discount}
@@ -330,6 +338,7 @@ const IncomeTax: React.FC<{
               }}
               negative
             />
+            <ToolResultDivider />
             <ResultRow
               label={translations.incomeTaxTool.result.tax_credits}
               value={store.results.tax_credits}

@@ -25,6 +25,7 @@ import {
 import { availableYears } from "@/tools/IncomeTax/values";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import ToolResultDivider from "../tools/ToolResultDivider";
 import { Input } from "../ui/input";
 
 interface IncomeTaxState {
@@ -272,6 +273,7 @@ const IncomeTaxSection = () => {
                 label={translations.incomeTaxTool.result.business_income}
                 value={store.results.business_income}
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.entrepreneur_deduction}
                 value={store.results.entrepreneur_deduction}
@@ -282,6 +284,7 @@ const IncomeTaxSection = () => {
                     translations.incomeTaxTool.info.entrepreneur_deduction,
                 }}
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.profit_exemption}
                 value={store.results.profit_exemption}
@@ -292,15 +295,18 @@ const IncomeTaxSection = () => {
                 }}
                 obfuscate
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.wage}
                 value={store.results.wage}
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.taxable_income}
                 value={store.results.taxable_income}
                 obfuscate
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.income_tax}
                 value={store.results.income_tax}
@@ -310,6 +316,7 @@ const IncomeTaxSection = () => {
                 }}
                 obfuscate
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.general_tax_credit}
                 value={store.results.general_tax_credit}
@@ -320,6 +327,7 @@ const IncomeTaxSection = () => {
                 }}
                 negative
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.labor_discount}
                 value={store.results.labor_discount}
@@ -328,6 +336,7 @@ const IncomeTaxSection = () => {
                   description: translations.incomeTaxTool.info.labor_discount,
                 }}
               />
+              <ToolResultDivider />
               <ResultRow
                 label={translations.incomeTaxTool.result.tax_credits}
                 value={store.results.tax_credits}
