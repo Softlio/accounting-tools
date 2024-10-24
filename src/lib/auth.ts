@@ -4,7 +4,6 @@ import bcrypt from "bcrypt";
 import { type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { prisma } from "./prisma";
-
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -26,9 +25,12 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findFirst({
           where: {
-            email: credentials.email,
+            email: {
+              equals: credentials.email,
+              mode: "insensitive",
+            },
           },
         });
 
@@ -40,10 +42,29 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const passwordMatch = await bcrypt.compare(
+        let passwordMatch = await bcrypt.compare(
           credentials.password,
           user.password
         );
+
+        if (!passwordMatch) {
+          const saltedPassword = bcrypt.hashSync(credentials.password, 10);
+
+          if (saltedPassword !== user.password) {
+            Logger.error(
+              "NextAuthOptions",
+              `Password does not match for user: ${credentials.email} - ${saltedPassword} <> ${user.password}`
+            );
+            return null;
+          }
+
+          Logger.info(
+            "NextAuthOptions",
+            `Password match for user: ${credentials.email}`
+          );
+
+          passwordMatch = true;
+        }
 
         if (!passwordMatch) {
           Logger.error(
