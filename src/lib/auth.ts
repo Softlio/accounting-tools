@@ -89,7 +89,6 @@ export const authOptions: NextAuthOptions = {
               "NextAuthOptions",
               `Error updating user pending status: ${credentials.email}`
             );
-            return null;
           }
         }
 
@@ -109,7 +108,6 @@ export const authOptions: NextAuthOptions = {
             "NextAuthOptions",
             `Error logging event: ${credentials.email}`
           );
-          return null;
         }
 
         return {
