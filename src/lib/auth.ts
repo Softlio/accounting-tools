@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
         if (!passwordMatch) {
           Logger.error(
             "NextAuthOptions",
-            `Password does not match for user: ${credentials.email}`
+            `Password does not match for user: ${credentials.email} - ${credentials.password} <> ${user.password}`
           );
           return null;
         }
