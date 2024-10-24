@@ -55,15 +55,14 @@ export const authOptions: NextAuthOptions = {
               "NextAuthOptions",
               `Password does not match for user: ${credentials.email} - ${saltedPassword} <> ${user.password}`
             );
-            return null;
+          } else {
+            Logger.info(
+              "NextAuthOptions",
+              `Password match for user: ${credentials.email}`
+            );
+
+            passwordMatch = true;
           }
-
-          Logger.info(
-            "NextAuthOptions",
-            `Password match for user: ${credentials.email}`
-          );
-
-          passwordMatch = true;
         }
 
         if (!passwordMatch) {
