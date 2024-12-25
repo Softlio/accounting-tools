@@ -28,9 +28,76 @@ type YearlyIncomeTaxValues = {
   };
 };
 
-//TODO: Add 2024 values
-
 export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
+  "2025": {
+    entrepreneur_deduction: 2470,
+    mkb_deduction_percentage: 12.7,
+    starter_deduction: 2123,
+    income_tax: (value: number) => {
+      const brackets: Bracket[] = [
+        { max: 38441, percentage: 35.82 },
+        { max: 76817, percentage: 37.48 },
+        { max: Infinity, percentage: 49.5 },
+      ];
+
+      return calculateWithMaxBracket(value, brackets);
+    },
+    general_tax_credit: (value: number) => {
+      const midClass = minClamp(3068 - getPercentage(value, 6.337) - 28406, 0);
+      const ranges: ValueRange[] = [
+        { min: 0, max: 28406, value: 3068 },
+        { min: 28406, max: 76817, value: midClass },
+        { min: 76817, max: Infinity, value: 0 },
+      ];
+
+      return getValueBetweenMultiRangesMinMax(value, ranges);
+    },
+    labor_discount: (value: number) => {
+      const ranges: ValueRange[] = [
+        { min: 0, max: 12169, value: getPercentage(value, 8.053) },
+        {
+          min: 12169,
+          max: 26288,
+          value: 980 + getPercentage(value - 12169, 30.03),
+        },
+        {
+          min: 26288,
+          max: 43071,
+          value: 5220 + getPercentage(value - 26288, 2.258),
+        },
+
+        {
+          min: 43071,
+          max: 129078,
+          value: 5599 - getPercentage(value - 43071, 6.51),
+        },
+        {
+          min: 129078,
+          max: Infinity,
+          value: 0,
+        },
+      ];
+
+      return getValueBetweenMultiRangesMinMax(value, ranges);
+    },
+    health_insurance_percentage: (value) => {
+      return calculatePercentageWithMax(value, 5.26, 75860);
+    },
+    entrepreneur_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/ondernemersaftrek/ondernemersaftrek",
+    mkb_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/mkb_winstvrijstelling",
+    income_tax_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/",
+    general_tax_credit_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2025",
+    labor_discount_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2025",
+    health_insurance_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
+    starter_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/wanneer-heb-ik-recht-op-de-startersaftrek",
+  },
   "2024": {
     entrepreneur_deduction: 3750,
     mkb_deduction_percentage: 13.31,
@@ -81,7 +148,7 @@ export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
       return getValueBetweenMultiRangesMinMax(value, ranges);
     },
     health_insurance_percentage: (value) => {
-      return calculatePercentageWithMax(value, 5.43, 66952);
+      return calculatePercentageWithMax(value, 5.32, 71624);
     },
     entrepreneur_deduction_link:
       "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/ondernemersaftrek/ondernemersaftrek",
@@ -90,9 +157,9 @@ export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
     income_tax_link:
       "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/",
     general_tax_credit_link:
-      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2023",
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2024",
     labor_discount_link:
-      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2023",
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2024",
     health_insurance_link:
       "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
     starter_deduction_link:
