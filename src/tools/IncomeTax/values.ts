@@ -29,6 +29,80 @@ type YearlyIncomeTaxValues = {
 };
 
 export const yearlyIncomeTaxValues: YearlyIncomeTaxValues = {
+  "2026": {
+    entrepreneur_deduction: 1200,
+    mkb_deduction_percentage: 12.7,
+    starter_deduction: 2123,
+    income_tax: (value: number) => {
+      const brackets: Bracket[] = [
+        { max: 38883, percentage: 35.7 },
+        { max: 79137, percentage: 37.56 },
+        { max: Infinity, percentage: 49.5 },
+      ];
+
+      return calculateWithMaxBracket(value, brackets);
+    },
+    general_tax_credit: (value: number) => {
+      const midClass = minClamp(3115 - getPercentage(value - 29736, 6.306), 0);
+
+      const ranges: ValueRange[] = [
+        // Tot afbouwpunt: volledige algemene heffingskorting
+        { min: 0, max: 29736, value: 3115 },
+
+        // Tussen afbouwpunt en eindpunt: lineaire afbouw
+        { min: 29736, max: 79137, value: midClass },
+
+        // Boven eindpunt: geen algemene heffingskorting meer
+        { min: 79137, max: Infinity, value: 0 },
+      ];
+
+      return getValueBetweenMultiRangesMinMax(value, ranges);
+    },
+    labor_discount: (value: number) => {
+      const ranges: ValueRange[] = [
+        { min: 0, max: 11965, value: getPercentage(value, 8.324) },
+        {
+          min: 11965,
+          max: 25845,
+          value: 996 + getPercentage(value - 11965, 31.189),
+        },
+        {
+          min: 25845,
+          max: 45593,
+          value: 5325 + getPercentage(value - 25845, 1.96),
+        },
+        {
+          min: 45593,
+          max: 133335,
+          value: 5712 - getPercentage(value - 45593, 6.51),
+        },
+        {
+          min: 133335,
+          max: Infinity,
+          value: 0,
+        },
+      ];
+
+      return getValueBetweenMultiRangesMinMax(value, ranges);
+    },
+    health_insurance_percentage: (value) => {
+      return calculatePercentageWithMax(value, 4.85, 79412);
+    },
+    entrepreneur_deduction_link:
+      "https://ondernemersplein.overheid.nl/zelfstandigenaftrek",
+    mkb_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/mkb_winstvrijstelling",
+    income_tax_link:
+      "https://www.rijksoverheid.nl/actueel/nieuws/2025/09/16/belastingplan-2026-stappen-naar-een-beter-belastingstelsel",
+    general_tax_credit_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting",
+    labor_discount_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting",
+    health_insurance_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/werk_en_inkomen/zorgverzekeringswet/bijdrage_zorgverzekeringswet/inkomensafhankelijke_bijdrage_zorgverzekeringswet",
+    starter_deduction_link:
+      "https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/wanneer-heb-ik-recht-op-de-startersaftrek",
+  },
   "2025": {
     entrepreneur_deduction: 2470,
     mkb_deduction_percentage: 12.7,
